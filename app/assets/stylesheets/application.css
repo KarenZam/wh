@@ -275,12 +275,13 @@ nav a:focus { color: #fff; }
   height: 50px;
 }
 
-.subscribe form button {
+.subscribe form button,
+.subscribe form input[type=submit] {
   width: 130px;
   height: 52px;
 }
 
-.subscribe form button[name=startup] {
+.subscribe form input[name=startup] {
   width: 150px;
 }
 
@@ -457,11 +458,6 @@ ul.user-benefits li {
   text-align: center;
 }
 
-.whos-behind-container p, .whos-behind-container h3, .whos-behind-container h4, .whos-behind-container h5 {
-  background-color: rgba(255,140,0,0.4);
-}
-
-
 .whos-behind {
   margin-top: 60px;
   padding-bottom: 10px;
@@ -484,6 +480,12 @@ ul.user-benefits li {
   margin-top: 30px;
 }
 
+.whos-behind, .whos-behind-box-1 {
+  /*background-color: rgba(255,90,50,0.7);*/
+  background-color: #e86431;
+  opacity: 0.8;
+}
+
 .whos-behind-box-1 h4 {
   padding: 10px 0 0 0;
   font-size: 30px;
@@ -497,7 +499,6 @@ ul.user-benefits li {
   font-weight: 300;
   line-height: 22px;
   color: #fff;
-  color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
 }
 

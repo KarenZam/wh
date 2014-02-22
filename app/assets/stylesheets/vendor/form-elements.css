@@ -1,5 +1,6 @@
 
 input[type="text"], 
+input[type="email"], 
 textarea {
     margin: 0;
     padding: 0 10px;
@@ -31,7 +32,8 @@ input[type="text"]:-ms-input-placeholder, textarea:-ms-input-placeholder { color
 input[type="text"]::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: #888; }
 
 
-.subscribe button, 
+.subscribe button,
+.subscribe input[type=submit],
 .contact-form button {
     margin: 0;
     padding: 0;
