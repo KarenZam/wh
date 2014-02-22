@@ -12,4 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require ./vendor/bootstrap.min
+//= require ./vendor/jquery.backstretch.min
+//= require ./vendor/jquery.countdown.min
+//= require ./vendor/scripts
