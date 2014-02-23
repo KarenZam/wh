@@ -37,7 +37,8 @@ $ ->
     navHeight = $('header[role=banner] nav').height()
 
     if scrollTop != scrollTo && elementId != undefined
-      $('html, body').animate scrollTop: scrollTo, Math.abs(scrollTop - scrollTo)
+      $('html, body').animate scrollTop: scrollTo,
+        Math.abs(scrollTop - scrollTo)
 
 
   # BACKGROUND SLIDESHOW
