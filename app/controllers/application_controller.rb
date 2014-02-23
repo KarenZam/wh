@@ -24,6 +24,12 @@ class ApplicationController < ActionController::Base
     current_user and not @current_user.is_startup
   end
 
+  protected
+
+  def set_csrf_token_header
+    response.headers['X-CSRF-Token'] = form_authenticity_token
+  end
+
   private
 
   def make_action_mailer_use_request_host_and_protocol

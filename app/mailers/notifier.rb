@@ -1,4 +1,4 @@
-class SubscriberValidator < ActionMailer::Base
+class Notifier < ActionMailer::Base
   default from: "W Hub Administrator <admin@whub.hk>"
 
   def password_reset_request(user)
@@ -16,7 +16,7 @@ class SubscriberValidator < ActionMailer::Base
   def registration_request(registrant)
     @registrant = registrant
 
-    mail to: @registrant.email, subject: "[W Hub] Confirm your subscription"
+    mail to: @registrant.email, subject: "[W Hub] Please confirm your registration"
   end
 
   def registration(user)

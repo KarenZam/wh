@@ -14,5 +14,6 @@ Bundler.require(:default, Rails.env)
 module Wh
   class Application < Rails::Application
     # config.assets.paths << "#{Rails}/assets/fonts"
+    config.action_dispatch.default_headers = {'X-UA-Compatible' => 'IE=edge'}
   end
 end

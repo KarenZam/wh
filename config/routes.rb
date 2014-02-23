@@ -4,6 +4,9 @@ Wh::Application.routes.draw do
   # Contact form
   resources :messages
 
+  # Subscriptions (beta testing)
+  post 'subscriptions' => 'subscriptions#create'
+
   # Sign in/out
   get    'login'  => 'session#new',     as: :login
   post   'login'  => 'session#create'

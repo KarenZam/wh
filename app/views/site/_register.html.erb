@@ -1,15 +1,17 @@
-<div id="register" class="container">
+<article id="register" class="container">
   <div class="row">
-    <div class="span12 register">
-      <h3>Don't miss out!</h3>
-      <%= form_for :user, url: login_url, html: { class: "form-inline" } do |f| %>
-        <%= f.email_field :email, placeholder: "Enter your email..." %>
-        <%= f.hidden_field :is_startup, value: false %>
-        <%= f.submit "I'm a startup", id: "startup_submit", class: "btn", name: "startup" %>
+    <div class="col-md-12 register">
+      <header>
+        <h2>Don't miss out! Sign up now...</h2>
+      </header>
+      <%= form_for :user, url: login_url, html: { class: "form-inline", id: "registration-form" } do |f| %>
+        <%= f.label :email, class: "sr-only" %>
+        <%= f.email_field :email, placeholder: "Enter your email address...", class: "form-control" %>
         <%= f.submit "I am talent", id: "talent_submit", class: "btn", name: "talent" %>
+        <%= f.submit "I'm a startup", id: "startup_submit", class: "btn", name: "startup" %>
       <% end %>
-      <div class="success-message"></div>
-      <div class="error-message"></div>
+      <div class="registration success-message"></div>
+      <div class="registration error-message"></div>
     </div>
   </div>
-</div>
+</article>

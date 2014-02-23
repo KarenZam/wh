@@ -20,7 +20,7 @@ jQuery(document).ready(function() {
     var element_class = $(this).attr('class');
     var scroll_to = 0;
     var nav_height = $('nav').height();
-    if(element_class == 'menu-top') { scroll_to = $(".coming-soon").offset().top; }
+    if(element_class == 'menu-top') { scroll_to = $(".countdown").offset().top; }
     else if(element_class == 'menu-register') { scroll_to = $(".register").offset().top - nav_height - 60; }
     else if(element_class == 'menu-project') { scroll_to = $(".about").offset().top - nav_height - 60; }
     else if(element_class == 'menu-testimonials') { scroll_to = $(".testimonials").offset().top - nav_height - 60; }
@@ -35,13 +35,13 @@ jQuery(document).ready(function() {
   /*
     Background slideshow
   */
-  $('.coming-soon').backstretch([
+  $('.countdown').backstretch([
     "assets/backgrounds/free_blue_sky.jpg"
   , "assets/backgrounds/free_computer_2pers.jpg"
   , "assets/backgrounds/free_laptop_wood.jpg"
   ], {duration: 3000, fade: 750});
 
-  $('.about-container').backstretch("assets/backgrounds/2.jpg");
+  $('#about-you').backstretch("assets/backgrounds/2.jpg");
 
   $('.whos-behind-container').backstretch("assets/backgrounds/free_redbricks.jpg");
 

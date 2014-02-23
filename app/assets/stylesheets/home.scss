@@ -1,0 +1,659 @@
+$white:                    rgba( 255, 255, 255, 1.0 );
+$off-white:                rgba( 238, 238, 238, 1.0 );
+$very-light-gray:          rgba( 204, 204, 204, 1.0 );
+$light-gray:               rgba( 136, 136, 136, 1.0 );
+$medium-gray:              rgba(  85,  85,  85, 1.0 );
+$medium-dark-gray:         rgba(  61,  61,  61, 1.0 );
+$orange:                   rgba( 232, 100,  62, 1.0 );
+$black:                    rgba(   0,   0,   0, 1.0 );
+$translucent-black:        rgba(   0,   0,   0, 0.4 );
+$translucent-medium-blue:  rgba(   0,   0, 139, 0.4 );
+$translucent-white:        rgba( 255, 255, 255, 0.6 );
+
+$navbar-font-size: 18px;
+$navbar-line-height: 32px;
+
+$menu-toggle-font-size: 21px;
+$menu-toggle-width: 46px;
+$menu-toggle-height: 48px;
+
+$countdown-font-size: 28px;
+$countdown-line-height: 42px;
+
+$timer-font-size: 80px;
+$timer-line-height: 90px;
+
+$form-font-size: 22px;
+
+$user-benefits-font-size: 18px;
+$user-benefits-line-height: 32px;
+
+@mixin radius( $size ) {
+  -moz-border-radius: $size;
+  -webkit-border-radius: $size;
+  border-radius: $size;
+}
+
+@mixin transition( $type, $time ) {
+  -o-transition: $type $time;
+  -moz-transition: $type $time;
+  -webkit-transition: $type $time;
+  -ms-transition: $type $time;
+  transition: $type $time;
+}
+
+@mixin box-shadow( $type ) {
+  -moz-box-shadow: $type;
+  -webkit-box-shadow: $type;
+  box-shadow: $type;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  background-color: $white;
+}
+
+strong {
+  font-weight: bold;
+}
+
+a,
+a:hover,
+a:focus {
+  color: $orange;
+  text-decoration: none;
+  @include transition( all, 0.3s );
+}
+
+
+/***** Page navigation *****/
+
+header[role=banner] nav {
+  display: none;
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: $navbar-font-size;
+  line-height: $navbar-line-height;
+  text-align: center;
+  color: $white;
+  background-color: $medium-dark-gray;
+}
+
+header[role=banner] nav a {
+  display: inline-block;
+  margin: 0 15px;
+  padding: 10px 0;
+  color: $white;
+}
+header[role=banner] nav a:hover { color: $orange; }
+header[role=banner] nav a:focus { color: $white;  }
+
+.show-menu,
+.hide-menu {
+  position: absolute;
+  z-index: 999;
+  top: -6px;
+  right: 100px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.hide-menu {
+  right: 85px;
+  padding-top: 5px;
+}
+
+.show-menu a,
+.hide-menu a {
+  display: inline-block;
+  width: $menu-toggle-width;
+  height: $menu-toggle-height;
+  padding-top: 12px;
+  font-size: $menu-toggle-font-size;
+  color: $white;
+  background-color: $medium-dark-gray;
+  @include radius( 4px );
+}
+.show-menu a:hover,
+.hide-menu a:hover {
+  color: $white;
+}
+
+/***** Forms *****/
+
+form {
+  margin-top: 20px;
+}
+
+form legend {
+  padding: 0 0 10px;
+  font-size: 30px;
+  font-weight: 100;
+  line-height: 34px;
+  text-align: left;
+  border: none;
+  color: $medium-gray;
+}
+
+form input[type=email],
+form input[type=text] {
+  width: 100%;
+  height: 50px;
+  font-size: $form-font-size;
+}
+
+form textarea.form-control {
+  width: 100%;
+  height: 8em;
+  font-size: $form-font-size;
+}
+
+form input[type=submit] {
+  width: 130px;
+  height: 52px;
+  font-size: $form-font-size;
+  color: $white;
+  background-color: $orange;
+}
+
+form input[name=startup] {
+  width: 150px;
+}
+
+form input[type=submit]:hover,
+form input[type=submit]:active {
+  color: $light-gray;
+  background-color: $off-white;
+  @include transition( all, 0.3s );
+  @include box-shadow( none );
+}
+
+form .input-group {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.success-message, .error-message {
+  font-size: 22px;
+  color: $light-gray;
+  line-height: 36px;
+}
+
+.success-message {
+  margin: 20px 0 10px 0;
+}
+
+.error-message {
+  margin: 10px 0;
+  color: $orange;
+}
+
+
+/***** Countdown! *****/
+
+.countdown {
+  margin: 0 auto;
+  padding: 75px 0 40px;
+  text-align: center;
+  color: $white;
+}
+
+.countdown-block {
+  padding: 10px 10px 30px;
+  background-color: $translucent-medium-blue;
+  @include radius( 10px );
+}
+
+.countdown h1 {
+  font-size: 60px;
+  font-weight: normal;
+}
+
+.countdown p {
+  margin: 40px 0 10px;
+  padding: 0 50px;
+  font-size: $countdown-font-size;
+  font-weight: 100;
+  line-height: $countdown-line-height;
+}
+
+.timer {
+  margin-top: 60px;
+}
+
+.timer .days-wrapper,
+.timer .hours-wrapper,
+.timer .minutes-wrapper,
+.timer .seconds-wrapper {
+  display: inline-block;
+  cursor: pointer;
+  width: 160px;
+  height: 140px;
+  margin: 0 10px;
+  padding-top: 20px;
+  border: 1px solid $white;
+  font-size: 18px;
+  @include radius( 85px );
+  @include transition( all, 0.3s );
+}
+
+.timer .days-wrapper:hover,
+.timer .hours-wrapper:hover,
+.timer .minutes-wrapper:hover,
+.timer .seconds-wrapper:hover {
+  background: $orange;
+  border: 1px solid $orange;
+  @include transition( all, 0.3s );
+}
+
+.timer .days,
+.timer .hours,
+.timer .minutes,
+.timer .seconds {
+  font-size: $timer-font-size;
+  font-weight: 100;
+  line-height: $timer-line-height;
+}
+
+.countdown p.top-arrow {
+  margin-top: 50px;
+  font-size: 36px;
+}
+
+.countdown p.top-arrow i {
+  position: relative;
+  width: 100px;
+  height: 37px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.countdown p.top-arrow i:before {
+  position: absolute;
+  top: 0;
+  left: 33.5px;
+}
+
+.countdown p.top-arrow i:after {
+  content: "scroll down";
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.countdown p.top-arrow i:before,
+.countdown p.top-arrow i:after {
+  @include transition( all, 0.3s );
+}
+
+.countdown p.top-arrow i:hover:before { top: 40px; }
+.countdown p.top-arrow i:hover:after { top: 10px; }
+
+
+/***** Register form *****/
+
+.register {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.register h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 47px;
+  font-weight: 100;
+  line-height: 50px;
+  color: $medium-gray;
+}
+
+.register p {
+  margin-top: 30px;
+  font-size: 22px;
+  color: $light-gray;
+  line-height: 36px;
+}
+
+
+/***** About you *****/
+
+.about-you ul {
+  font-size: $user-benefits-font-size;
+  text-align: left;
+}
+
+.about-you ul li {
+  line-height: $user-benefits-line-height;
+}
+
+.about-you {
+  margin: 60px auto 0;
+  padding-bottom: 60px;
+  text-align: center;
+  color: $white;
+  background-color: $medium-dark-gray;
+}
+
+.about-you p {
+  text-align: left;
+}
+
+.about-you > div > header {
+  margin-top: 60px;
+  padding-bottom: 10px;
+}
+
+.about-you > div > header > div,
+.about-you aside > div {
+  padding: 20px;
+  background-color: $translucent-black;
+  @include radius( 10px );
+}
+
+.about-you h2 {
+  font-size: 46px;
+  font-weight: 100;
+  line-height: 50px;
+}
+
+.about-you p {
+  margin-top: 30px;
+  padding: 0 120px;
+  font-size: 22px;
+  line-height: 36px;
+}
+
+.about-you aside > div {
+  margin-top: 30px;
+}
+
+.about-you aside h3 {
+  padding: 10px 0;
+  font-size: 30px;
+  font-weight: 100;
+  line-height: 34px;
+}
+
+.about-you aside p {
+  font-size: 18px;
+  line-height: 32px;
+}
+
+.about-icon {
+  cursor: pointer;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  padding-top: 32px;
+  font-size: 56px;
+  border: 1px solid $orange;
+  background-color: $orange;
+  @include radius( 85px );
+  @include transition( all, 0.3s );
+}
+
+.about-icon:hover {
+  border: 1px solid $white;
+  background: transparent;
+  @include transition( all, 0.3s );
+}
+
+
+/***** Testimonials *****/
+
+.testimonials {
+  margin-top: 60px;
+  padding-bottom: 70px;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 46px;
+  font-weight: 100;
+  color: $medium-gray;
+  line-height: 50px;
+}
+
+.testimonials p {
+  margin-top: 30px;
+  font-size: 22px;
+  color: $light-gray;
+  line-height: 36px;
+}
+
+.testimonial-single {
+  display: inline-block;
+}
+
+.testimonial-single p {
+  display: none;
+}
+
+.testimonial-single-image {
+  display: inline-block;
+  width: 58px;
+  margin: 0 5px 10px 5px;
+}
+
+.testimonial-single-image img {
+  width: 100%;
+  opacity: 0.5;
+  cursor: pointer;
+  @include radius( 4px );
+  @include transition( all, 0.3s );
+}
+
+.testimonial-active {
+  padding-bottom: 20px;
+}
+
+.testimonial-quote {
+  font-family: Georgia, serif;
+  font-size: 90px;
+  line-height: 70px;
+  color: $very-light-gray;
+}
+
+
+/***** About us *****/
+
+.about-us {
+  margin: 0 auto;
+  padding-bottom: 60px;
+  color: $white;
+  text-align: center;
+}
+
+.about-us > div > header > div {
+  margin-top: 60px;
+  padding-bottom: 10px;
+}
+
+.about-us > div > header h2 {
+  font-size: 46px;
+  font-weight: 100;
+  line-height: 50px;
+}
+
+.about-us > div > header p {
+  margin-top: 30px;
+  padding: 0 120px;
+  font-size: 22px;
+  line-height: 36px;
+}
+
+.about-us aside {
+  margin-top: 30px;
+}
+
+.about-us > div > header > div,
+.about-us aside {
+  background-color: $orange;
+  opacity: 0.8;
+}
+
+.about-us aside h3 {
+  padding: 10px 0 0 0;
+  font-size: 30px;
+  font-weight: 100;
+  line-height: 34px;
+}
+
+.about-us aside .our-position {
+  padding-bottom: 7px;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 22px;
+  color: $white;
+  text-transform: uppercase;
+}
+
+.about-us aside p {
+  font-size: 18px;
+  line-height: 32px;
+}
+
+.about-us aside .about-us-photo {
+  position: relative;
+  width: 142px;
+  height: 142px;
+  margin: 0 auto;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.about-us aside .about-us-photo img {
+  width: 100%;
+  -moz-border-radius: 85px;
+  -webkit-border-radius: 85px;
+  border-radius: 85px;
+}
+
+.about-us aside .about-us-photo .about-us-social {
+  position: absolute;
+  top: -150px;
+  left: 0;
+  width: 142px;
+  height: 84px;
+  padding-top: 58px;
+  background: $orange;
+  opacity: 0;
+  @include radius( 85px );
+  @include transition( all, 0.4s );
+}
+
+.about-us aside .about-us-photo:hover .about-us-social {
+  top: 0;
+  opacity: 1;
+}
+
+.about-us aside .about-us-photo .about-us-social,
+.about-us aside .about-us-photo .about-us-social a,
+.about-us aside .about-us-photo .about-us-social a:hover {
+  font-size: 18px;
+  color: $white;
+  line-height: 20px;
+}
+
+.about-us aside .about-us-photo .about-us-social a {
+  margin: 0 4px;
+}
+
+/** Latest tweets **/
+
+.latest-tweets {
+  margin-top: 40px;
+}
+
+.latest-tweets h4 {
+  padding: 0 0 10px 0;
+  font-size: 30px;
+  font-weight: 100;
+  line-height: 34px;
+}
+
+.latest-tweets p {
+  font-size: 18px;
+  line-height: 32px;
+  word-wrap: break-word;
+}
+
+.latest-tweets a, .latest-tweets a:focus { color: $white; }
+.latest-tweets a:hover { color: $orange; }
+
+.latest-tweets ul {
+  margin: 20px 0 0 0;
+}
+
+.latest-tweets li {
+  margin: 0 5px;
+  display: inline-block;
+  list-style: none;
+}
+
+.latest-tweets li .tweet_nav {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: $translucent-white;
+  cursor: pointer;
+  @include radius( 5px );
+  @include transition( all, 0.3s );
+}
+
+
+/***** Contact us *****/
+
+.contact-us {
+  margin-top: 60px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.contact-us h2 {
+  font-size: 46px;
+  font-weight: 100;
+  line-height: 50px;
+  color: $medium-gray;
+}
+
+.contact-us p {
+  margin-top: 30px;
+  padding: 0 120px;
+  font-size: 22px;
+  color: $light-gray;
+  line-height: 36px;
+}
+
+.contact.error-message {
+  font-size: 16px;
+  text-align: left;
+}
+
+
+/***** Footer *****/
+
+footer {
+  padding: 10px 0;
+  background: $medium-dark-gray;
+}
+
+.footer-copyright p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 32px;
+  color: $white;
+}
+
+.footer-social {
+  text-align: right;
+}
+
