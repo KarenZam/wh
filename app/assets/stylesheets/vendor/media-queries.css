@@ -1,12 +1,12 @@
 
 @media (min-width: 980px) and (max-width: 1200px) {
 
-	.show-menu, .hide-menu {
-		right: 50px;
-	}
+  .show-menu, .hide-menu {
+    right: 50px;
+  }
 
-	.coming-soon p {
-    	padding: 0 20px;
+  .coming-soon p {
+      padding: 0 20px;
     }
 
 }
@@ -27,29 +27,29 @@
         font-size: 60px;
         line-height: 70px;
     }
-    
+
     .coming-soon p, .about p, .whos-behind p, .contact p {
-    	padding: 0;
+      padding: 0;
     }
 
 }
 
 @media (max-width: 979px) {
 
-	.show-menu {
-		right: 30px;
-	}
-	
-	.hide-menu {
-		position: static;
-		top: auto;
-		right: auto;
-		z-index: auto;
-	}
-	
-	.hide-menu a {
-		padding-top: 0;
-	}
+  .show-menu {
+    right: 30px;
+  }
+
+  .hide-menu {
+    position: static;
+    top: auto;
+    right: auto;
+    z-index: auto;
+  }
+
+  .hide-menu a {
+    padding-top: 0;
+  }
 
 }
 
@@ -60,15 +60,15 @@
         padding-right: 0;
     }
 
-    .coming-soon h2, .subscribe h3, .about h3, .testimonials h3, .whos-behind h3, .contact h3 {
+    .coming-soon h2, .register h3, .about h3, .testimonials h3, .whos-behind h3, .contact h3 {
         font-size: 36px;
         padding: 0 20px;
     }
 
-    .coming-soon p, .subscribe p, .about p, .testimonials p, .whos-behind p, .contact p {
+    .coming-soon p, .register p, .about p, .testimonials p, .whos-behind p, .contact p {
         padding: 0 20px;
     }
-    
+
     .about-box-1 p, .whos-behind-box-1 p, .latest-tweets p, .contact-address p {
         padding: 0 20px;
     }
@@ -87,27 +87,27 @@
         font-size: 60px;
         line-height: 70px;
     }
-    
+
     .contact-form, .contact-address {
         text-align: center;
     }
-    
+
     .contact-form {
         padding-bottom: 40px;
     }
-    
+
     .contact-address {
         padding-bottom: 65px;
     }
-    
+
     .footer-copyright, .footer-social {
         text-align: center;
     }
-    
+
     .footer-copyright p {
         padding: 0 20px;
     }
-    
+
     .footer-social {
         margin-top: 15px;
     }
@@ -116,11 +116,11 @@
 
 @media (max-width: 540px) {
 
-    .subscribe form input {
+    .register form input {
         width: 90%;
     }
 
-    .subscribe form button {
+    .register form button {
         width: 90%;
         margin-top: 10px;
     }
@@ -129,8 +129,8 @@
 
 @media (max-width: 400px) {
 
-	.show-menu {
-		right: 10px;
-	}
+  .show-menu {
+    right: 10px;
+  }
 
 }

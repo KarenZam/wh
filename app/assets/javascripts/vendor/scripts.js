@@ -1,6 +1,6 @@
 
 jQuery(document).ready(function() {
-  
+
   /*
     Top menu
   */
@@ -21,17 +21,17 @@ jQuery(document).ready(function() {
     var scroll_to = 0;
     var nav_height = $('nav').height();
     if(element_class == 'menu-top') { scroll_to = $(".coming-soon").offset().top; }
-    else if(element_class == 'menu-subscribe') { scroll_to = $(".subscribe").offset().top - nav_height - 60; }
+    else if(element_class == 'menu-register') { scroll_to = $(".register").offset().top - nav_height - 60; }
     else if(element_class == 'menu-project') { scroll_to = $(".about").offset().top - nav_height - 60; }
     else if(element_class == 'menu-testimonials') { scroll_to = $(".testimonials").offset().top - nav_height - 60; }
     else if(element_class == 'menu-about-us') { scroll_to = $(".whos-behind").offset().top - nav_height - 60; }
     else if(element_class == 'menu-contact') { scroll_to = $(".contact").offset().top - nav_height - 60; }
-    
+
     if($(window).scrollTop() != scroll_to && element_class !== undefined) {
       $('html, body').animate({scrollTop: scroll_to}, 1000);
     }
   });
-  
+
   /*
     Background slideshow
   */
@@ -40,29 +40,29 @@ jQuery(document).ready(function() {
   , "assets/backgrounds/free_computer_2pers.jpg"
   , "assets/backgrounds/free_laptop_wood.jpg"
   ], {duration: 3000, fade: 750});
-  
+
   $('.about-container').backstretch("assets/backgrounds/2.jpg");
-  
+
   $('.whos-behind-container').backstretch("assets/backgrounds/free_redbricks.jpg");
 
   /*
     Countdown initializer
   */
   var now = new Date();
-  var countTo = "2014/4/4";    
+  var countTo = "2014/4/4";
   $('.timer').countdown(countTo, function(event) {
     $(this).find('.days').text(event.offset.totalDays);
     $(this).find('.hours').text(event.offset.hours);
     $(this).find('.minutes').text(event.offset.minutes);
     $(this).find('.seconds').text(event.offset.seconds);
   });
-  
+
   /*
     Testimonials
   */
   $('.testimonial-active').html('<p>' + $('.testimonial-single:first p').html() + '</p>');
   $('.testimonial-single:first .testimonial-single-image img').css('opacity', '1');
-  
+
   $('.testimonial-single-image img').on('click', function() {
     $('.testimonial-single-image img').css('opacity', '0.5');
     $(this).css('opacity', '1');
@@ -72,10 +72,10 @@ jQuery(document).ready(function() {
       $(this).fadeIn(400);
     });
   });
-  
+
   /*
     Show latest tweets
-  
+
   $('.latest-tweets .tweets').tweet({
     modpath: 'assets/twitter/',
     username: 'anli_zaimi',
@@ -83,7 +83,7 @@ jQuery(document).ready(function() {
     count: 5,
     loading_text: 'loading ...'
   });
-  
+
   $('.latest-tweets .tweets .tweet_list li').append('<span class="tweet_nav"></span>');
   $('.latest-tweets .tweets .tweet_list li:first .tweet_nav').css('background', '#e8643e');
   $('.latest-tweets .tweets .tweet_list li .tweet_time').hide();
@@ -107,38 +107,35 @@ jQuery(document).ready(function() {
 
   /*
     Google maps
-  
+
   var position = new google.maps.LatLng(45.067883, 7.687231);
   $('.contact-address .map').gmap({'center': position, 'zoom': 15, 'disableDefaultUI':true, 'callback': function() {
       var self = this;
-      self.addMarker({'position': this.get('map').getCenter() }); 
+      self.addMarker({'position': this.get('map').getCenter() });
     }
   });
   */
 
   /*
-    Subscription form
+    Registration form
   */
   $('.success-message').hide();
   $('.error-message').hide();
 
   $('#startup_submit').on('click', function(e) {
-    console.log("STARTUP");
-    $('#subscriber_is_startup').val("true");
+    $('#registrant_is_startup').val("true");
   });
 
   $('#talent_submit').on('click', function(e) {
-    console.log("TALENT");
-    $('#subscriber_is_startup').val("false");
+    $('#registrant_is_startup').val("false");
   });
 
-  $('.subscribe form').submit(function(e) {
+  $('.register form').submit(function(e) {
     e.preventDefault();
-    console.log("SUBMIT");
     var postdata = $(this).serialize();
     $.ajax({
       type: 'POST',
-      url: '/subscribers',
+      url: '/register/new',
       data: postdata,
       dataType: 'json',
       success: function(json) {
@@ -151,14 +148,14 @@ jQuery(document).ready(function() {
         else {
           $('.error-message').hide();
           $('.success-message').hide();
-          $('.subscribe form').hide();
+          $('.register form').hide();
           $('.success-message').html(json.message);
           $('.success-message').fadeIn();
         }
       }
     });
   });
-  
+
   /*
     Contact form
   */
@@ -193,6 +190,6 @@ jQuery(document).ready(function() {
     });
   });
 
-  
+
 });
 

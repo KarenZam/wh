@@ -23,13 +23,13 @@
 
 
 #main-bgnd {
-  background-color: rgba(0,0,139,0.4); 
+  background-color: rgba(0,0,139,0.4);
   border-radius: 10px;
   padding: 10px;
 }
 
 .about, .about-box-1 {
-  background-color: rgba(0,0,0,0.4);  
+  background-color: rgba(0,0,0,0.4);
   border-radius: 10px;
   padding: 20px;
 }
@@ -232,7 +232,7 @@ nav a:focus { color: #fff; }
   font-weight: 300;
 }
 
-.coming-soon p.top-arrow i:before, 
+.coming-soon p.top-arrow i:before,
 .coming-soon p.top-arrow i:after {
   -o-transition: all .3s;
   -moz-transition: all .3s;
@@ -247,41 +247,41 @@ nav a:focus { color: #fff; }
 
 /***** Subscription form *****/
 
-.subscribe {
+.register {
   margin-top: 60px;
   text-align: center;
 }
 
-.subscribe h3 {
+.register h3 {
   font-size: 46px;
   font-weight: 100;
   color: #555;
   line-height: 50px;
 }
 
-.subscribe p {
+.register p {
   margin-top: 30px;
   font-size: 22px;
   color: #888;
   line-height: 36px;
 }
 
-.subscribe form {
+.register form {
   margin-top: 40px;
 }
 
-.subscribe form input {
+.register form input {
   width: 340px;
   height: 50px;
 }
 
-.subscribe form button,
-.subscribe form input[type=submit] {
+.register form button,
+.register form input[type=submit] {
   width: 130px;
   height: 52px;
 }
 
-.subscribe form input[name=startup] {
+.register form input[name=startup] {
   width: 150px;
 }
 
@@ -547,8 +547,8 @@ ul.user-benefits li {
   opacity: 1;
 }
 
-.whos-behind-box-1 .whos-behind-photo .whos-behind-social, 
-.whos-behind-box-1 .whos-behind-photo .whos-behind-social a, 
+.whos-behind-box-1 .whos-behind-photo .whos-behind-social,
+.whos-behind-box-1 .whos-behind-photo .whos-behind-social a,
 .whos-behind-box-1 .whos-behind-photo .whos-behind-social a:hover {
   font-size: 18px;
   color: #fff;
@@ -632,12 +632,12 @@ ul.user-benefits li {
   line-height: 36px;
 }
 
-.contact-form, 
+.contact-form,
 .contact-address {
   padding-bottom: 80px;
 }
 
-.contact-form h4, 
+.contact-form h4,
 .contact-address h4 {
   padding: 0 0 10px 0;
   font-size: 30px;
@@ -657,7 +657,7 @@ ul.user-benefits li {
   margin: 15px 0 0 0;
 }
 
-.contact-form form input, 
+.contact-form form input,
 .contact-form form textarea {
   width: 90%;
   height: 50px;

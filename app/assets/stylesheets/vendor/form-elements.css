@@ -1,7 +1,10 @@
 
-input[type="text"], 
-input[type="email"], 
-textarea {
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea,
+.register input[type="text"],
+.register input[type="email"],
+.register textarea {
     margin: 0;
     padding: 0 10px;
     background: #fff;
@@ -19,22 +22,36 @@ textarea {
     box-shadow: none;
 }
 
-input[type="text"]:focus, 
-textarea:focus {
+.contact-form input[type="text"]:focus,
+.contact-form textarea:focus,
+.register input[type="text"]:focus,
+.register textarea:focus {
     border: 1px solid #e8643e;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
 }
 
-input[type="text"]:-moz-placeholder, textarea:-moz-placeholder { color: #888; }
-input[type="text"]:-ms-input-placeholder, textarea:-ms-input-placeholder { color: #888; }
-input[type="text"]::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: #888; }
+.contact-form input[type="text"]:-moz-placeholder,
+.contact-form textarea:-moz-placeholder,
+.register input[type="text"]:-moz-placeholder,
+.register textarea:-moz-placeholder { color: #888; }
+
+.contact-form input[type="text"]:-ms-input-placeholder,
+.contact-form textarea:-ms-input-placeholder,
+.register input[type="text"]:-ms-input-placeholder,
+.register textarea:-ms-input-placeholder { color: #888; }
+
+.contact-form input[type="text"]::-webkit-input-placeholder,
+.contact-form textarea::-webkit-input-placeholder,
+.register input[type="text"]::-webkit-input-placeholder,
+.register textarea::-webkit-input-placeholder { color: #888; }
 
 
-.subscribe button,
-.subscribe input[type=submit],
-.contact-form button {
+.register button,
+.register input[type=submit],
+.contact-form button,
+.contact-form input[type=submit] {
     margin: 0;
     padding: 0;
     background: #e8643e;
@@ -58,7 +75,7 @@ input[type="text"]::-webkit-input-placeholder, textarea::-webkit-input-placehold
     transition: all .3s;
 }
 
-.subscribe button:hover, 
+.register button:hover,
 .contact-form button:hover {
     background: #eee;
     color: #888;
@@ -69,7 +86,7 @@ input[type="text"]::-webkit-input-placeholder, textarea::-webkit-input-placehold
     transition: all .3s;
 }
 
-.subscribe button:active, 
+.register button:active,
 .contact-form button:active {
     background: #eee;
     color: #888;

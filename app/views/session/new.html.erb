@@ -1,0 +1,20 @@
+<div class="container">
+  <%= form_for :user, url: login_url, html: { role: "form", id: "loginform" } do |f| %>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <fieldset>
+          <legend>Please sign in</legend>
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: "form-control", placeholder: "Email address" %>
+          <div class="form-group">
+            <%= f.label :password, id: 'password-label' %>
+            <%= f.password_field :password, class: "form-control showable-password", placeholder: "Password" %>
+          <div class="form-group">
+            <%= f.submit "Sign in", class: "btn btn-success", id: 'submit-button' %>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  <% end %>
+</div>

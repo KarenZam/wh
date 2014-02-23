@@ -1,0 +1,22 @@
+<h1>Messages</h1>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Subject</th>
+      <th>Received</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @messages.each do |message| %>
+      <tr>
+        <td><%= message.user.name if message.user %></td>
+        <td><%= message.email %></td>
+        <td><%= message.subject %></td>
+        <td><%= message.created_at.strftime("%-I:%M on %a, %-d %b %Y") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

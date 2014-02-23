@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="span12 register">
+      <h3>Don't miss out!</h3>
+      <%= form_for :user, url: login_url, html: { class: "form-inline" } do |f| %>
+        <%= f.email_field :email, placeholder: "Enter your email..." %>
+        <%= f.hidden_field :is_startup, value: false %>
+        <%= f.submit "I'm a startup", id: "startup_submit", class: "btn", name: "startup" %>
+        <%= f.submit "I am talent", id: "talent_submit", class: "btn", name: "talent" %>
+      <% end %>
+      <div class="success-message"></div>
+      <div class="error-message"></div>
+    </div>
+  </div>
+</div>

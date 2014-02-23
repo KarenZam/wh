@@ -1,0 +1,9 @@
+<%= form_for :user, users_url do |f| %>
+  <div class="form-group">
+    <%= f.label :email, class: "sr-only" %>
+    <%= f.email_field :email, placeholder: "Email..." %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: "btn" %>
+  </div>
+<% end %>
