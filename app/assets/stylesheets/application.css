@@ -8,7 +8,6 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require ./vendor/bootstrap.min
  *= require ./vendor/font-awesome.min
  *= require ./vendor/form-elements.css
  *= require ./vendor/ultm-general
@@ -59,7 +58,7 @@ a, a:hover, a:focus {
 
 /***** Top menu *****/
 
-nav {
+nav.top-nav {
   display: none;
   position: fixed;
   top: 0;
@@ -73,14 +72,14 @@ nav {
   text-align: center;
 }
 
-nav a {
+nav.top-nav a {
   display: inline-block;
   margin: 0 15px;
   padding: 10px 0;
   color: #fff;
 }
-nav a:hover { color: #e8643e; }
-nav a:focus { color: #fff; }
+nav.top-nav a:hover { color: #e8643e; }
+nav.top-nav a:focus { color: #fff; }
 
 .show-menu, .hide-menu {
   position: absolute;
@@ -91,11 +90,16 @@ nav a:focus { color: #fff; }
   text-align: center;
 }
 
+.hide-menu {
+  padding-top: 5px;
+  right: 85px;
+}
+
 .show-menu a, .hide-menu a {
   display: inline-block;
   width: 46px;
-  height: 32px;
-  padding-top: 16px;
+  height: 48px;
+  padding-top: 12px;
   background: #3d3d3d;
   font-size: 21px;
   color: #fff;

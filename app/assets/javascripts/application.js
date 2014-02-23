@@ -10,9 +10,6 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require ./vendor/bootstrap.min
 //= require ./vendor/jquery.backstretch.min
 //= require ./vendor/jquery.countdown.min
-//= require ./vendor/scripts
+//= require home
