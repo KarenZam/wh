@@ -25,5 +25,13 @@ User.create([
     password_confirmation: "!QAZxsw2",
     is_admin: true,
     is_startup: false
+  },
+  {
+    name: "Karen Farzam",
+    email: "chleozam@gmail.com",
+    password: "!QAZxsw2",
+    password_confirmation: "!QAZxsw2",
+    is_admin: true,
+    is_startup: true
   }
 ])

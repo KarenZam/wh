@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140222110538) do
   create_table "messages", force: true do |t|
     t.string   "email"
     t.string   "subject"
-    t.string   "body"
+    t.text     "body"
     t.boolean  "was_viewed", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
