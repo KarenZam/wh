@@ -1,4 +1,6 @@
-Thank you for registering with W Hub. If you did not register with us, please contact us.
+A contact was made by <%= @message.email %> at <%= @message.created_at.strftime("%-I:%M on %a, %-d %b %Y") %>. The subject is "<%= @message.subject %>" and the body of the email is:
+
+<%= @message.body %>
 
 Cheers!
-The W Hub Team
+Your humble W Hub server

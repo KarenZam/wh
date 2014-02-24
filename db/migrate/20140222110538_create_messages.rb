@@ -3,7 +3,7 @@ class CreateMessages < ActiveRecord::Migration
     create_table :messages do |t|
       t.string :email
       t.string :subject
-      t.string :body
+      t.text :body
       t.boolean :was_viewed, default: false
 
       t.timestamps

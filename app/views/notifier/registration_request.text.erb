@@ -1,6 +1,6 @@
 Thank you for registering with W Hub! To complete your registration, please follow the link below:
 
-<%= register_url(@registrant.id) %>
+<%= register_url(@registrant.code) %>
 
 If you received this email in error, simply do nothing. The above link will expire at <%= @registrant.expires_at.strftime("%-I:%M on %a, %-d %b %Y") %>.
 
