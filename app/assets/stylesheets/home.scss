@@ -222,6 +222,10 @@ form .input-group {
   line-height: $countdown-line-height;
 }
 
+.countdown-timer > div {
+  cursor:default;
+}
+
 .timer {
   margin-top: 60px;
 }
