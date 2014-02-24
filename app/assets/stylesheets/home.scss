@@ -498,6 +498,12 @@ form .input-group {
 .about-us aside {
   background-color: $orange;
   opacity: 0.8;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.about-us aside p {
+  text-align: left;
 }
 
 .about-us aside h3 {
