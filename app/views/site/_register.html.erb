@@ -3,12 +3,13 @@
     <div class="col-md-12 register">
       <header>
         <h2>Don't miss out! Sign up now...</h2>
+        <br>
       </header>
       <%= form_for :user, url: login_url, html: { class: "form-inline", id: "registration-form" } do |f| %>
         <%= f.label :email, class: "sr-only" %>
         <%= f.email_field :email, placeholder: "Enter your email address...", class: "form-control" %>
         <%= f.submit "I am talent", id: "talent_submit", class: "btn", name: "talent" %>
-        <%= f.submit "I'm a startup", id: "startup_submit", class: "btn", name: "startup" %>
+        <%= f.submit "I am a startup", id: "startup_submit", class: "btn", name: "startup" %>
       <% end %>
       <div class="registration success-message"></div>
       <div class="registration error-message"></div>
