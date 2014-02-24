@@ -222,10 +222,6 @@ form .input-group {
   line-height: $countdown-line-height;
 }
 
-.countdown-timer > div {
-  cursor:default;
-}
-
 .timer {
   margin-top: 60px;
 }
@@ -253,6 +249,7 @@ form .input-group {
   background: $orange;
   border: 1px solid $orange;
   @include transition( all, 0.3s );
+  cursor: default;
 }
 
 .timer .days,
