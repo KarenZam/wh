@@ -6,10 +6,18 @@
         <br>
       </header>
       <%= form_for :user, url: login_url, html: { class: "form-inline", id: "registration-form" } do |f| %>
-        <%= f.label :email, class: "sr-only" %>
-        <%= f.email_field :email, placeholder: "Enter your email address...", class: "form-control" %>
-        <%= f.submit "I am talent", id: "talent_submit", class: "btn", name: "talent" %>
-        <%= f.submit "I am a startup", id: "startup_submit", class: "btn", name: "startup" %>
+        <div class="row">
+          <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+            <%= f.label :email, class: "sr-only" %>
+            <%= f.email_field :email, placeholder: "Enter your email address...", class: "form-control" %>
+          </div>
+          <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+            <%= f.submit "I am talent", id: "talent_submit", class: "btn", name: "talent" %>
+          </div>
+          <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
+            <%= f.submit "I am a startup", id: "startup_submit", class: "btn", name: "startup" %>
+          </div>
+        </div>
       <% end %>
       <div class="registration success-message"></div>
       <div class="registration error-message"></div>

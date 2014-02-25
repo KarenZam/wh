@@ -10,7 +10,7 @@ $translucent-black:        rgba(   0,   0,   0, 0.4 );
 $translucent-medium-blue:  rgba(   0,   0, 139, 0.4 );
 $translucent-white:        rgba( 255, 255, 255, 0.6 );
 
-$navbar-font-size: 18px;
+$navbar-font-size: 14px;
 $navbar-line-height: 32px;
 
 $menu-toggle-font-size: 21px;
@@ -88,7 +88,7 @@ header[role=banner] nav {
   z-index: 998;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 102%;
   font-size: $navbar-font-size;
   line-height: $navbar-line-height;
   text-align: center;
@@ -110,14 +110,17 @@ header[role=banner] nav a:focus { color: $white;  }
   position: absolute;
   z-index: 999;
   top: -6px;
-  right: 100px;
+  right: -15px;
+  margin: 0;
   padding: 0 20px;
   text-align: center;
 }
 
 .hide-menu {
-  right: 85px;
-  padding-top: 5px;
+  right: -25px;
+  margin: 0 20px;
+  padding: 5px 0;
+  opacity: 0;
 }
 
 .show-menu a,
@@ -166,15 +169,11 @@ form textarea.form-control {
 }
 
 form input[type=submit] {
-  width: 130px;
+  width: 100%;
   height: 52px;
   font-size: $form-font-size;
   color: $white;
   background-color: $orange;
-}
-
-form input[name=startup] {
-  width: 170px;
 }
 
 form input[type=submit]:hover,
@@ -335,14 +334,16 @@ form .input-group {
   color: $light-gray;
   line-height: 36px;
 }
+
 #registration-form input {
   font-size: 20px;
   margin: 5px 0 5px 0;
 }
 
 #user_email {
-  width: 270px;
+  width: 100%;
 }
+
 /***** About you *****/
 
 .about-you ul {
@@ -416,7 +417,7 @@ form .input-group {
   width: 140px;
   height: 140px;
   margin: 0 auto;
-  padding-top: 32px;
+  padding-top: 25px;
   font-size: 56px;
   border: 3px solid $white;
   background: transparent;
@@ -693,3 +694,60 @@ footer {
   text-align: right;
 }
 
+
+@media (max-width: 979px) {
+  .countdown-block {
+    margin: 5px;
+    padding: 5px 5px 15px;
+  }
+
+  .countdown p {
+    margin: 20px 0 10px;
+    padding: 0 10px;
+    font-size: 18px;
+    font-weight: 100;
+    line-height: 28px;
+  }
+
+  .timer .days, .timer .hours, .timer .minutes, .timer .seconds {
+    font-size: 30px;
+    font-weight: 100;
+    line-height: 33px;
+  }
+
+  .timer .days-wrapper, .timer .hours-wrapper, .timer .minutes-wrapper, .timer .seconds-wrapper {
+    width: 60px;
+    height: 60px;
+    margin: 0 10px;
+    padding-top: 7px;
+    font-size: 9px;
+  }
+
+  .about-you > div > header > div {
+    margin: 0 15px;
+    padding: 10px;
+  }
+
+  .about-you h2 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .about-you p {
+    margin-top: 15px;
+    padding: 0 4px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .about-us > div > header > div,
+  .about-us aside {
+    margin: 15px 15px 5px;
+    padding: 10px;
+  }
+
+  form legend {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}

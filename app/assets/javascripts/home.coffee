@@ -41,7 +41,7 @@ $ ->
         Math.abs(scrollTop - scrollTo)
 
 
-  $('header[role=banner]').children('nav').children('a').on 'click', (e) ->
+  $('header[role=banner] nav a').on 'click', (e) ->
     e.preventDefault()
 
     elementId = $(@).attr('class').replace /menu-/, "#"
