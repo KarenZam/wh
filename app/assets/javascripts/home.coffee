@@ -28,6 +28,19 @@ $ ->
     $('header[role=banner] nav').slideUp ->
       $('.show-menu a').fadeIn()
 
+  $('#countdown-arrow').on 'click', (e) ->
+    e.preventDefault()
+
+    elementId = "#register"
+    scrollTop = $(window).scrollTop()
+    scrollTo = $(elementId).offset().top
+    navHeight = $('header[role=banner] nav').height()
+
+    if scrollTop != scrollTo && elementId != undefined
+      $('html, body').animate scrollTop: scrollTo,
+        Math.abs(scrollTop - scrollTo)
+
+
   $('header[role=banner]').children('nav').children('a').on 'click', (e) ->
     e.preventDefault()
 

@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140222110538) do
     t.datetime "updated_at"
   end
 
-  create_table "registrants", force: true do |t|
+  create_table "subscribers", force: true do |t|
     t.string   "email"
     t.boolean  "is_startup", default: false
     t.string   "code"

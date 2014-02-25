@@ -49,9 +49,22 @@ $user-benefits-line-height: 32px;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Oxygen', sans-serif;
+  // font-family: 'Roboto', sans-serif;
   font-weight: 300;
   background-color: $white;
+}
+
+body h3 {
+  font-weight: 700;
+}
+
+body h1, body h2 {
+  font-weight: 400;
+}
+
+h1, h2, h3, h4 {
+  margin-top: 10px;
 }
 
 strong {
@@ -161,7 +174,7 @@ form input[type=submit] {
 }
 
 form input[name=startup] {
-  width: 150px;
+  width: 170px;
 }
 
 form input[type=submit]:hover,
@@ -233,7 +246,7 @@ form .input-group {
   display: inline-block;
   cursor: pointer;
   width: 160px;
-  height: 140px;
+  height: 160px;
   margin: 0 10px;
   padding-top: 20px;
   border: 1px solid $white;
@@ -249,6 +262,7 @@ form .input-group {
   background: $orange;
   border: 1px solid $orange;
   @include transition( all, 0.3s );
+  cursor: default;
 }
 
 .timer .days,
@@ -304,13 +318,13 @@ form .input-group {
 .register {
   margin-top: 60px;
   text-align: center;
+  padding-bottom: 10px;
 }
 
 .register h2 {
   margin: 0;
   padding: 0;
   font-size: 47px;
-  font-weight: 100;
   line-height: 50px;
   color: $medium-gray;
 }
@@ -321,8 +335,14 @@ form .input-group {
   color: $light-gray;
   line-height: 36px;
 }
+#registration-form input {
+  font-size: 20px;
+  margin: 5px 0 5px 0;
+}
 
-
+#user_email {
+  width: 270px;
+}
 /***** About you *****/
 
 .about-you ul {
@@ -360,8 +380,8 @@ form .input-group {
 
 .about-you h2 {
   font-size: 46px;
-  font-weight: 100;
   line-height: 50px;
+  font-weight: 300;
 }
 
 .about-you p {
@@ -378,13 +398,17 @@ form .input-group {
 .about-you aside h3 {
   padding: 10px 0;
   font-size: 30px;
-  font-weight: 100;
+  font-weight: 700;
   line-height: 34px;
 }
 
 .about-you aside p {
   font-size: 18px;
   line-height: 32px;
+}
+
+.color-orange {
+  color: $orange;
 }
 
 .about-icon {
@@ -394,16 +418,26 @@ form .input-group {
   margin: 0 auto;
   padding-top: 32px;
   font-size: 56px;
-  border: 1px solid $orange;
-  background-color: $orange;
+  border: 3px solid $white;
+  background: transparent;
   @include radius( 85px );
   @include transition( all, 0.3s );
 }
 
 .about-icon:hover {
-  border: 1px solid $white;
-  background: transparent;
+  border: 1px solid $orange;
+  background-color: $orange;
+  color: $white;
   @include transition( all, 0.3s );
+  cursor: default;
+}
+
+.about-icon > i {
+  color: $white;
+}
+
+.about-icon:hover > i {
+  color: $white;
 }
 
 
@@ -417,7 +451,6 @@ form .input-group {
 
 .testimonials h2 {
   font-size: 46px;
-  font-weight: 100;
   color: $medium-gray;
   line-height: 50px;
 }
@@ -439,13 +472,13 @@ form .input-group {
 
 .testimonial-single-image {
   display: inline-block;
-  width: 58px;
+  width: 200px;
   margin: 0 5px 10px 5px;
 }
 
 .testimonial-single-image img {
   width: 100%;
-  opacity: 0.5;
+  // opacity: 0.5;
   cursor: pointer;
   @include radius( 4px );
   @include transition( all, 0.3s );
@@ -456,7 +489,7 @@ form .input-group {
 }
 
 .testimonial-quote {
-  font-family: Georgia, serif;
+  // font-family: Georgia, serif;
   font-size: 90px;
   line-height: 70px;
   color: $very-light-gray;
@@ -479,7 +512,6 @@ form .input-group {
 
 .about-us > div > header h2 {
   font-size: 46px;
-  font-weight: 100;
   line-height: 50px;
 }
 
@@ -498,12 +530,17 @@ form .input-group {
 .about-us aside {
   background-color: $orange;
   opacity: 0.8;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.about-us aside p {
+  text-align: left;
 }
 
 .about-us aside h3 {
   padding: 10px 0 0 0;
   font-size: 30px;
-  font-weight: 100;
   line-height: 34px;
 }
 
@@ -614,13 +651,12 @@ form .input-group {
 
 .contact-us {
   margin-top: 60px;
-  padding-bottom: 20px;
+  margin-bottom: 60px;
   text-align: center;
 }
 
 .contact-us h2 {
   font-size: 46px;
-  font-weight: 100;
   line-height: 50px;
   color: $medium-gray;
 }
