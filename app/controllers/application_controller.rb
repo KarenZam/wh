@@ -26,6 +26,11 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def m(md)
+    require 'rdiscount'
+    RDiscount.new(md).to_html.html_safe
+  end
+
   def set_csrf_token_header
     response.headers['X-CSRF-Token'] = form_authenticity_token
   end

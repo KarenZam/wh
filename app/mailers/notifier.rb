@@ -25,8 +25,9 @@ class Notifier < ActionMailer::Base
     mail to: @user.email, subject: "[W Hub] Thank you for registering"
   end
 
-  def contact(message)
+  def contact(message, markdown)
     @message = message
+    @markdown = markdown
 
     mail to: "chas@munat.com", subject: @message.subject
   end

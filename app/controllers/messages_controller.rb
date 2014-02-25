@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
     message = Message.create(message_params)
 
     if message.valid?
-      if Notifier.contact(message).deliver
+      if Notifier.contact(message, m(message.body)).deliver
         Notifier.contact_reply(message).deliver
         render json: {
           message: "Thank you, #{message.email}. We'll be in touch soon.",

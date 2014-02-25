@@ -38,7 +38,7 @@ $ ->
 
     if scrollTop != scrollTo && elementId != undefined
       $('html, body').animate scrollTop: scrollTo,
-        Math.abs(scrollTop - scrollTo)
+        Math.abs(scrollTop - scrollTo) / 3
 
 
   # BACKGROUND SLIDESHOW

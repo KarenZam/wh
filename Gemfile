@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'jbuilder'
 gem 'bcrypt'
 gem 'puma'
+gem 'rdiscount'
 
 group :development, :test do
   gem 'better_errors'
