@@ -701,9 +701,13 @@ footer {
     opacity: 1;
   }
 
+  header img {
+    width: 50%;
+  }
+
   .countdown-block {
     margin: 5px;
-    padding: 5px 5px 15px;
+    padding:5px5px 5px 15px;
   }
 
   .countdown p {
@@ -723,7 +727,7 @@ footer {
   .timer .days-wrapper, .timer .hours-wrapper, .timer .minutes-wrapper, .timer .seconds-wrapper {
     width: 60px;
     height: 60px;
-    margin: 0 10px;
+    margin: 5px 10px;
     padding-top: 7px;
     font-size: 9px;
   }
