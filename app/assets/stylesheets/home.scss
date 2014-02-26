@@ -684,7 +684,7 @@ footer {
 }
 
 .footer-copyright p {
-  margin: 10px 0 0 0;
+  margin: 20px 0 0 0;
   font-size: 18px;
   line-height: 32px;
   color: $white;
@@ -762,5 +762,9 @@ footer img {
   form legend {
     font-size: 20px;
     line-height: 24px;
+  }
+
+  .footer-copyright p {
+    margin: 30px 0 0 0;
   }
 }
