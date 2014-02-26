@@ -1,5 +1,5 @@
 class Notifier < ActionMailer::Base
-  default from: "W Hub Administrator <admin@whub.hk>"
+  default from: "W Hub Administrator <karenwhub@gmail.com>"
 
   def password_reset_request(user)
     @user = user
@@ -29,7 +29,7 @@ class Notifier < ActionMailer::Base
     @message = message
     @markdown = markdown
 
-    mail to: "chas@munat.com", subject: @message.subject
+    mail to: "karenwhub@gmail.com", subject: @message.subject
   end
 
   def contact_reply(message)
