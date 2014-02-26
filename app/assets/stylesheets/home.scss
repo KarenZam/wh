@@ -684,7 +684,7 @@ footer {
 }
 
 .footer-copyright p {
-  margin: 0;
+  margin: 10px 0 0 0;
   font-size: 18px;
   line-height: 32px;
   color: $white;
@@ -694,6 +694,10 @@ footer {
   text-align: right;
 }
 
+
+footer img {
+  width: 100px;
+}
 
 @media (max-width: 979px) {
 
