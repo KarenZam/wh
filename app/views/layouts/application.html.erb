@@ -30,6 +30,6 @@
   </head>
   <body>
     <%= yield %>
-    <%= render partial: "layouts/footer" %>
+    <%= render partial: "layouts/footer" unless @skip_footer %>
   </body>
 </html>
