@@ -139,6 +139,8 @@ $ ->
         $('.registration.error-message').hide()
         $('.registration.error-message').html data["message"]
         $('.registration.error-message').fadeIn()
+        $('#talent_submit').attr('disabled',false)
+        $("#startup_submit").attr('disabled',false)
 
 
   $('#startup_submit').on 'click', (e) ->
