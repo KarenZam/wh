@@ -13,3 +13,4 @@
 //= require ./vendor/jquery.backstretch.min
 //= require ./vendor/jquery.countdown.min
 //= require home
+//= require main

@@ -1,6 +1,6 @@
 $ ->
 
-  DEBUT_DATE = "2014/4/1"
+  DEBUT_DATE = "2014/4/4"
 
   COUNTDOWN_BGNDS = [
     "assets/backgrounds/free_blue_sky.jpg"
@@ -8,7 +8,7 @@ $ ->
     "assets/backgrounds/free_laptop_wood.jpg"
   ]
 
-  ABOUT_YOU_BGNDS = "assets/backgrounds/2.jpg"
+  ABOUT_YOU_BGNDS = "assets/backgrounds/blurred_path.jpg"
 
   ABOUT_US_BGNDS = "assets/backgrounds/free_redbricks.jpg"
 
@@ -109,6 +109,9 @@ $ ->
   $('.error-message').hide()
 
   sendRegistration = (isStartup) ->
+    $('#talent_submit').attr('disabled',true)
+    $("#startup_submit").attr('disabled',true)
+    console.log("done")
     data =
       "user":
         "email": $('#user_email').val()
@@ -122,6 +125,8 @@ $ ->
       contentType: 'application/json'
 
     posting.done (data) ->
+      $('#load').hide()
+      console.log("done ajax")
       if data["valid"]
         $('#registration-form').hide()
         $('.registration.error-message').hide()
@@ -134,6 +139,7 @@ $ ->
         $('.registration.error-message').hide()
         $('.registration.error-message').html data["message"]
         $('.registration.error-message').fadeIn()
+
 
   $('#startup_submit').on 'click', (e) ->
     e.preventDefault()
