@@ -126,19 +126,21 @@ $ ->
 
     posting.done (data) ->
       if data["valid"]
+        console.log()
         $('#registration-form').hide()
         $('.registration.error-message').hide()
         $('.registration.success-message').hide()
         $('.registration.success-message').html data["message"]
         $('.registration.success-message').fadeIn()
       else
+        console.log("else")
         $('#user_email').focus()
         $('.registration.success-message').hide()
         $('.registration.error-message').hide()
         $('.registration.error-message').html data["message"]
         $('.registration.error-message').fadeIn()
         $('#talent_submit').attr('disabled',false)
-        $("#startup_submit").attr('disabled',false)
+        $('#startup_submit').attr('disabled',false)
 
 
   $('#startup_submit').on 'click', (e) ->
