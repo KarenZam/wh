@@ -4,7 +4,8 @@ $very-light-gray:          rgba( 204, 204, 204, 1.0 );
 $light-gray:               rgba( 136, 136, 136, 1.0 );
 $medium-gray:              rgba(  85,  85,  85, 1.0 );
 $medium-dark-gray:         rgba(  61,  61,  61, 1.0 );
-$orange:                   rgba( 232, 100,  62, 1.0 );
+$orange:                   rgba( 255, 110,  0, 1.0 );
+// $orange:                   rgba( 232, 100,  62, 1.0 );
 $black:                    rgba(   0,   0,   0, 1.0 );
 $translucent-black:        rgba(   0,   0,   0, 0.4 );
 $translucent-medium-blue:  rgba(   0,   0, 139, 0.4 );
@@ -139,6 +140,10 @@ header[role=banner] nav a:focus { color: $white;  }
   color: $white;
 }
 
+.backstretch img {
+  opacity: 0.8;
+}
+
 /***** Forms *****/
 
 form {
@@ -216,7 +221,7 @@ form .input-group {
 }
 
 .countdown-block {
-  padding: 10px 10px 30px;
+  padding: 30px 10px 30px;
   background-color: $translucent-medium-blue;
   @include radius( 10px );
 }
@@ -410,6 +415,10 @@ form .input-group {
 
 .color-orange {
   color: $orange;
+}
+
+#about-you .color-orange {
+  cursor: pointer;
 }
 
 .about-icon {

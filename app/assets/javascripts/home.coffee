@@ -80,6 +80,22 @@ $ ->
     seconds.text(e.offset.seconds)
 
 
+
+  # ABOUT YOU
+
+  $('#about-you').find('.color-orange').on 'click', (e) ->
+    e.preventDefault()
+
+    elementId = "#register"
+    scrollTop = $(window).scrollTop()
+    scrollTo = $(elementId).offset().top
+    navHeight = $('header[role=banner] nav').height()
+
+    if scrollTop != scrollTo && elementId != undefined
+      $('html, body').animate scrollTop: scrollTo,
+        Math.abs(scrollTop - scrollTo)
+
+
   # TESTIMONIALS
 
   testimonialText = $('.testimonial-single:first p').html()
