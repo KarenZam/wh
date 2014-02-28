@@ -125,8 +125,6 @@ $ ->
       contentType: 'application/json'
 
     posting.done (data) ->
-      $('#load').hide()
-      console.log("done ajax")
       if data["valid"]
         $('#registration-form').hide()
         $('.registration.error-message').hide()
