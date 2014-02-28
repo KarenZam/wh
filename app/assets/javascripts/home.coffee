@@ -12,6 +12,19 @@ $ ->
 
   ABOUT_US_BGNDS = "assets/backgrounds/free_redbricks.jpg"
 
+  # GO TO REGISTER
+
+  goToRegister = () ->
+    elementId = "#register"
+    scrollTop = $(window).scrollTop()
+    scrollTo = $(elementId).offset().top
+    navHeight = $('header[role=banner] nav').height()
+
+    if scrollTop != scrollTo && elementId != undefined
+      $('html, body').animate scrollTop: scrollTo,
+        Math.abs(scrollTop - scrollTo)
+    
+
   # PAGE NAVIGATION
 
   $('.show-menu a, .hide-menu a').tooltip()
@@ -31,14 +44,15 @@ $ ->
   $('#countdown-arrow').on 'click', (e) ->
     e.preventDefault()
 
-    elementId = "#register"
-    scrollTop = $(window).scrollTop()
-    scrollTo = $(elementId).offset().top
-    navHeight = $('header[role=banner] nav').height()
+    goToRegister()
+    # elementId = "#register"
+    # scrollTop = $(window).scrollTop()
+    # scrollTo = $(elementId).offset().top
+    # navHeight = $('header[role=banner] nav').height()
 
-    if scrollTop != scrollTo && elementId != undefined
-      $('html, body').animate scrollTop: scrollTo,
-        Math.abs(scrollTop - scrollTo)
+    # if scrollTop != scrollTo && elementId != undefined
+    #   $('html, body').animate scrollTop: scrollTo,
+    #     Math.abs(scrollTop - scrollTo)
 
 
   $('header[role=banner] nav a').on 'click', (e) ->
@@ -83,18 +97,13 @@ $ ->
 
   # ABOUT YOU
 
-  $('#about-you').find('.color-orange').on 'click', (e) ->
+  $('#about-you').find('header').on 'click', (e) ->
     e.preventDefault()
+    goToRegister()
 
-    elementId = "#register"
-    scrollTop = $(window).scrollTop()
-    scrollTo = $(elementId).offset().top
-    navHeight = $('header[role=banner] nav').height()
-
-    if scrollTop != scrollTo && elementId != undefined
-      $('html, body').animate scrollTop: scrollTo,
-        Math.abs(scrollTop - scrollTo)
-
+  $('#about-you').find('li:last-child').on 'click', (e) ->
+    e.preventDefault()
+    goToRegister()
 
   # TESTIMONIALS
 

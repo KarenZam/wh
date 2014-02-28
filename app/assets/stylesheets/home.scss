@@ -4,7 +4,9 @@ $very-light-gray:          rgba( 204, 204, 204, 1.0 );
 $light-gray:               rgba( 136, 136, 136, 1.0 );
 $medium-gray:              rgba(  85,  85,  85, 1.0 );
 $medium-dark-gray:         rgba(  61,  61,  61, 1.0 );
-$orange:                   rgba( 255, 110,  0, 1.0 );
+$orange:                   rgba( 255, 110,   0, 1.0 );
+$bleu:                     rgba(  17,  68, 200, 1.0 );
+$green:                    rgba(  20, 209,   0, 1.0 );
 // $orange:                   rgba( 232, 100,  62, 1.0 );
 $black:                    rgba(   0,   0,   0, 1.0 );
 $translucent-black:        rgba(   0,   0,   0, 0.4 );
@@ -349,6 +351,14 @@ form .input-group {
   width: 100%;
 }
 
+#talent_submit {
+  background-color: $green;
+}
+
+#startup_submit {
+  background-color: $bleu;
+}
+
 /***** About you *****/
 
 .about-you ul {
@@ -358,6 +368,7 @@ form .input-group {
 
 .about-you ul li {
   line-height: $user-benefits-line-height;
+  list-style: none;
 }
 
 .about-you {
@@ -408,6 +419,11 @@ form .input-group {
   line-height: 34px;
 }
 
+.about-you aside h3, #about-you .color-orange, #about-you .color-green, #about-you .color-bleu, 
+  #about-you .about-icon {
+  cursor: pointer;
+}
+
 .about-you aside p {
   font-size: 18px;
   line-height: 32px;
@@ -417,12 +433,15 @@ form .input-group {
   color: $orange;
 }
 
-#about-you .color-orange {
-  cursor: pointer;
+.color-bleu {
+  color: $bleu;
+}
+
+.color-green {
+  color: $green;
 }
 
 .about-icon {
-  cursor: pointer;
   width: 140px;
   height: 140px;
   margin: 0 auto;
@@ -434,12 +453,31 @@ form .input-group {
   @include transition( all, 0.3s );
 }
 
-.about-icon:hover {
+.about-icon.about-startup:hover {
+  border: 1px solid $bleu;
+  background-color: $bleu;
+}
+
+h3.about-startup:hover {
+  color: $bleu;
+}
+
+.about-icon.about-talent:hover {
+  border: 1px solid $green;
+  background-color: $green;
+}
+
+h3.about-talent:hover {
+  color: $green;
+}
+
+.about-icon.about-curious:hover {
   border: 1px solid $orange;
   background-color: $orange;
-  color: $white;
-  @include transition( all, 0.3s );
-  cursor: default;
+}
+
+h3.about-curious:hover {
+  color: $orange;
 }
 
 .about-icon > i {
@@ -710,6 +748,16 @@ footer img {
   width: 100px;
 }
 
+.ultm-facebook, 
+.ultm-facebook.ultm-gray-to-color:hover {
+  background-color: #133783
+}
+
+.ultm-twitter, 
+.ultm-twitter.ultm-gray-to-color:hover {
+  background-color: #4099FF
+}
+
 /***** Registration new *****/
 // .registration-new {
 //   background-size: cover;
@@ -750,11 +798,11 @@ footer img {
   }
 
   .timer .days-wrapper, .timer .hours-wrapper, .timer .minutes-wrapper, .timer .seconds-wrapper {
-    width: 60px;
-    height: 60px;
-    margin: 5px 10px;
+    width: 70px;
+    height: 70px;
+    margin: 5px 5px;
     padding-top: 7px;
-    font-size: 9px;
+    font-size: 12px;
   }
 
   .about-you > div > header > div {
@@ -765,6 +813,11 @@ footer img {
   .about-you h2 {
     font-size: 24px;
     line-height: 30px;
+  }
+
+  .about-you ul {
+    padding-left: 20px;
+    font-size: 16px;
   }
 
   .about-you p {
