@@ -373,6 +373,8 @@ form .input-group {
   -webkit-transition-timing-function: ease-out;
   -moz-transform: scale(1.2,1.2);
   -moz-transition-timing-function: ease-out;
+  transform: scale(1.2,1.2);
+  transition-timing-function: ease-out;
   color: white;
 }
 
@@ -505,7 +507,6 @@ h3.about-curious:hover {
   color: $white;
 }
 
-
 /***** Testimonials *****/
 
 .testimonials {
@@ -556,6 +557,8 @@ h3.about-curious:hover {
   -webkit-transition-timing-function: ease-out;
   -moz-transform: scale(1.2,1.2);
   -moz-transition-timing-function: ease-out;
+  transform: scale(1.2,1.2);
+  transition-timing-function: ease-out;
 }
 
 .testimonial-active {
