@@ -1,5 +1,11 @@
 class SubscriptionsController < ApplicationController
 
+  def new
+    @code = params[:code]
+
+    render "new", layout: false
+  end
+
   def create
     registrant = Registrant.create(subscription_params)
 
