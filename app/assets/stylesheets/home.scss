@@ -32,6 +32,9 @@ $form-font-size: 22px;
 $user-benefits-font-size: 18px;
 $user-benefits-line-height: 32px;
 
+$noty-message-font-size: 22px;
+$noty-message-line-height: 36px;
+
 @mixin radius( $size ) {
   -moz-border-radius: $size;
   -webkit-border-radius: $size;
@@ -81,6 +84,12 @@ a:focus {
   color: $orange;
   text-decoration: none;
   @include transition( all, 0.3s );
+}
+
+.noty_text {
+  font-size: $noty-message-font-size;
+  font-weight: 100;
+  line-height: $noty-message-line-height;
 }
 
 
@@ -438,7 +447,7 @@ form .input-group {
   line-height: 34px;
 }
 
-.about-you aside h3, #about-you .color-orange, #about-you .color-green, #about-you .color-bleu, 
+.about-you aside h3, #about-you .color-orange, #about-you .color-green, #about-you .color-bleu,
   #about-you .about-icon {
   cursor: pointer;
 }
@@ -787,7 +796,7 @@ footer img {
   @include transition( all, 0.5s );
 }
 
-.ultm-facebook:hover, 
+.ultm-facebook:hover,
 .ultm-twitter:hover {
   border: solid 4px white;
   -webkit-transform: translate(-2px,-5px); /* Chrome, Safari, Opera */

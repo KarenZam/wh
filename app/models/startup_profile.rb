@@ -1,0 +1,3 @@
+class StartupProfile < Profile
+
+end

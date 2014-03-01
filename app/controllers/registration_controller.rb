@@ -2,7 +2,6 @@ class RegistrationController < ApplicationController
   before_action :get_registrant
 
   def new
-    @skip_footer = true
     @user = User.new
   end
 

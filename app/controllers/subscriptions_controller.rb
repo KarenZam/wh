@@ -1,9 +1,18 @@
 class SubscriptionsController < ApplicationController
 
   def new
-    @code = params[:code]
+    if registrant = Registrant.find_by_code(params[:code])
+      user = User.new email: registrant.email, user_category: registrant.user_category
 
-    render "new", layout: false
+      if user.save
+        registrant.destroy
+        Notifier.registration(user).deliver
+        render "new", layout: false
+        return
+      end
+    end
+
+    redirect_to root_url, alert: "Sorry, your code has expired. Please re-submit your email.", flash: { code_expired: true }
   end
 
   def create
@@ -32,6 +41,6 @@ class SubscriptionsController < ApplicationController
   private
 
   def subscription_params
-    params.require(:user).permit( :email, :is_startup )
+    params.require(:user).permit( :email, :user_category )
   end
 end

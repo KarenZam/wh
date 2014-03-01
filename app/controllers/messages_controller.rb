@@ -1,6 +1,10 @@
 class MessagesController < ApplicationController
+  before_action :is_authenticated?
 
   def index
+    @messages = Message.all
+
+    render layout: 'layouts/admin'
   end
 
   def show

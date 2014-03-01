@@ -3,12 +3,13 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password
   before_save :downcase_email
+  before_create :set_password
 
   has_many :messages
+  has_many :profile
 
   attr_accessor :password, :password_confirmation
 
-  validates :name, :email, presence: true
   validates :email, uniqueness: { case_sensitive: false }
   validates :email, format: { with: /\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\Z/i }
   validates :password, presence: true, on: :create
@@ -52,6 +53,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def name
+    if self.profile and self.profile.name
+      self.profile.name
+    else
+      "No profile"
+    end
+  end
+
   protected
 
   def unset_password_reset
@@ -70,5 +79,12 @@ class User < ActiveRecord::Base
 
   def downcase_email
     self.email.downcase!
+  end
+
+  def set_password
+    if self.password.blank?
+      self.salt = BCrypt::Engine.generate_salt
+      self.fish = BCrypt::Engine.hash_secret(SecureRandom.urlsafe_base64, self.salt)
+    end
   end
 end

@@ -1,0 +1,3 @@
+class InternProfile < Profile
+
+end

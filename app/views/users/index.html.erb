@@ -5,19 +5,17 @@
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
-          <th>Name</th>
           <th>Email</th>
-          <th>Startup?</th>
+          <th>Type</th>
           <th>Admin?</th>
         </tr>
       </thead>
       <tbody>
         <% @users.each do |user| %>
           <tr>
-            <td><%= user.name %></td>
             <td><%= user.email %></td>
-            <td><%= user.is_startup ? "Yes" : "No" %></td>
-            <td><%= user.email ? "Yes" : "No" %></td>
+            <td><%= user.user_category %></td>
+            <td><%= user.is_admin ? "Yes" : "No" %></td>
           </tr>
         <% end %>
       </tbody>

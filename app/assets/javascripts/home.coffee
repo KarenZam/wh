@@ -133,17 +133,17 @@ $ ->
   $('.success-message').hide()
   $('.error-message').hide()
 
-  sendRegistration = (isStartup) ->
+  sendRegistration = (userCategory) ->
     $('#talent_submit').attr('disabled',true)
     $("#startup_submit").attr('disabled',true)
 
     email = $('#user_email').val()
-    message = "Thank you, #{email}, #{if isStartup then 'startup' else 'talent'}. We'll be in touch."
+    message = "Thank you, #{email}, #{userCategory}. We'll be in touch."
 
     data =
       "user":
         "email": email
-        "is_startup": isStartup
+        "user_category": userCategory
       "authenticity_token": $('input[name=authenticity_token]').val()
 
     $('#registration-form').hide()
@@ -171,11 +171,11 @@ $ ->
 
   $('#startup_submit').on 'click', (e) ->
     e.preventDefault()
-    sendRegistration(true)
+    sendRegistration("startup")
 
   $('#talent_submit').on 'click', (e) ->
     e.preventDefault()
-    sendRegistration(false)
+    sendRegistration("talent")
 
 
 

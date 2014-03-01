@@ -5,7 +5,7 @@ Wh::Application.routes.draw do
   resources :messages
 
   # Subscriptions (beta testing)
-  get 'subscriptions/:code' => 'subscriptions#new'
+  get 'subscriptions/:code' => 'subscriptions#new', as: :subscription
   post 'subscriptions' => 'subscriptions#create'
 
   # Sign in/out
