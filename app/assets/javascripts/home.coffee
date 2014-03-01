@@ -136,12 +136,21 @@ $ ->
   sendRegistration = (isStartup) ->
     $('#talent_submit').attr('disabled',true)
     $("#startup_submit").attr('disabled',true)
-    console.log("done")
+
+    email = $('#user_email').val()
+    message = "Thank you, #{email}, #{if isStartup then 'startup' else 'talent'}. We'll be in touch."
+
     data =
       "user":
-        "email": $('#user_email').val()
+        "email": email
         "is_startup": isStartup
       "authenticity_token": $('input[name=authenticity_token]').val()
+
+    $('#registration-form').hide()
+    $('.registration.error-message').hide()
+    $('.registration.success-message').hide()
+    $('.registration.success-message').html message
+    $('.registration.success-message').fadeIn()
 
     posting = $.ajax '/subscriptions',
       type: 'POST'
@@ -150,15 +159,7 @@ $ ->
       contentType: 'application/json'
 
     posting.done (data) ->
-      if data["valid"]
-        console.log()
-        $('#registration-form').hide()
-        $('.registration.error-message').hide()
-        $('.registration.success-message').hide()
-        $('.registration.success-message').html data["message"]
-        $('.registration.success-message').fadeIn()
-      else
-        console.log("else")
+      unless data["valid"]
         $('#user_email').focus()
         $('.registration.success-message').hide()
         $('.registration.error-message').hide()
@@ -181,12 +182,22 @@ $ ->
   # CONTACT FORM AJAX
 
   sendMessage = () ->
+    email = $('#message_email').val()
+    subject = $('#message_subject').val()
+    body = $('#message_body').val()
+    console.log "sendMessage running!"
     data =
       "message":
-        "email": $('#message_email').val()
-        "subject": $('#message_subject').val()
-        "body": $('#message_body').val()
+        "email": email
+        "subject": subject
+        "body": body
       "authenticity_token": $('input[name=authenticity_token]').val()
+
+    $('#contact-form').hide()
+    $('.contact.error-message').hide()
+    $('.contact.success-message').hide()
+    $('.contact.success-message').html("Thank you, #{email}. We&apos;ll be in touch.")
+    $('.contact.success-message').fadeIn()
 
     posting = $.ajax '/messages',
       type: 'POST'
@@ -195,13 +206,7 @@ $ ->
       contentType: 'application/json'
 
     posting.done (data) ->
-      if data["valid"]
-        $('#contact-form').hide()
-        $('.contact.error-message').hide()
-        $('.contact.success-message').hide()
-        $('.contact.success-message').html data["message"]
-        $('.contact.success-message').fadeIn()
-      else
+      unless data["valid"]
         $('#message_email').focus()
         $('.contact.success-message').hide()
         $('.contact.error-message').hide()

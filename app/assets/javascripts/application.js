@@ -12,5 +12,6 @@
 //
 //= require ./vendor/jquery.backstretch.min
 //= require ./vendor/jquery.countdown.min
+//= require ./vendor/parsley.min
 //= require home
 

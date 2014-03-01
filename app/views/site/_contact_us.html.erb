@@ -6,30 +6,28 @@
   </header>
   <section class="row">
     <div class="col-md-8 col-md-offset-2">
-      <%= form_for :message, url: messages_url, html: { id: "contact-form" } do |f| %>
+      <form accept-charset="UTF-8" action="<%= messages_url %>" id="contact-form" method="post">
         <fieldset>
-          <legend>
-            Want to know more ?
-            We'd love to hear from you!
-          </legend>
+          <legend>Want to know more ? We'd love to hear from you!</legend>
           <div class="contact error-message"></div>
           <div class="input-group">
-            <%= f.label :email, class: "sr-only" %>
-            <%= f.email_field :email, class: "form-control", placeholder: "Email..." %>
+            <label for="message_email" class="sr-only">Email</label>
+            <input type="email" id="message_email" name="email" placeholder="Email..." class="form-control" required>
           </div>
           <div class="input-group">
-            <%= f.label :subject, class: "sr-only" %>
-            <%= f.text_field :subject, class: "form-control", placeholder: "Subject..." %>
+            <label for="message_subject" class="sr-only">Subject</label>
+            <input type="text" id="message_subject" name="subject" placeholder="Subject..." class="form-control" required>
           </div>
           <div class="input-group">
-            <%= f.label :body, "Message", class: "sr-only" %>
-            <%= f.text_area :body, class: "form-control", placeholder: "Message..." %>
+            <label for="message_body" class="sr-only">Message</label>
+            <textarea id="message_body" name="body" placeholder="Message..." class="form-control"></textarea>
           </div>
           <div class="input-group">
-            <%= f.submit "Send", class: "btn" %>
+            <input type="submit" name="commit" value="Send" class="btn">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           </div>
         </fieldset>
-      <% end %>
+      </form>
       <div class="contact success-message"></div>
     </div>
   </section>
