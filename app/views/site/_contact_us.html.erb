@@ -8,8 +8,10 @@
     <div class="col-md-8 col-md-offset-2">
       <%= form_for :message, url: messages_url, html: { id: "contact-form" } do |f| %>
         <fieldset>
-          <legend>Want to know more ?</legend>
-          <legend>We'd love to hear from you!</legend>
+          <legend>
+            Want to know more ?
+            We'd love to hear from you!
+          </legend>
           <div class="contact error-message"></div>
           <div class="input-group">
             <%= f.label :email, class: "sr-only" %>

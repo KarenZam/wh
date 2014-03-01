@@ -23,7 +23,7 @@ $ ->
     if scrollTop != scrollTo && elementId != undefined
       $('html, body').animate scrollTop: scrollTo,
         Math.abs(scrollTop - scrollTo)
-    
+    $('#user_email').focus()
 
   # PAGE NAVIGATION
 

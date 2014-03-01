@@ -5,7 +5,8 @@ $light-gray:               rgba( 136, 136, 136, 1.0 );
 $medium-gray:              rgba(  85,  85,  85, 1.0 );
 $medium-dark-gray:         rgba(  61,  61,  61, 1.0 );
 $orange:                   rgba( 255, 110,   0, 1.0 );
-$bleu:                     rgba(  17,  68, 200, 1.0 );
+$bleu:                     rgba(  2,  118, 253, 1.0 );
+// $bleu:                     rgba(  17,  68, 200, 1.0 );
 $green:                    rgba(  20, 209,   0, 1.0 );
 // $orange:                   rgba( 232, 100,  62, 1.0 );
 $black:                    rgba(   0,   0,   0, 1.0 );
@@ -143,7 +144,11 @@ header[role=banner] nav a:focus { color: $white;  }
 }
 
 .backstretch img {
-  opacity: 0.8;
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  -ms-filter: blur(1px);
+  filter: blur(1px);
 }
 
 /***** Forms *****/
@@ -359,6 +364,18 @@ form .input-group {
   background-color: $bleu;
 }
 
+#talent_submit, #startup {
+  @include transition( all, 0.6s );
+}
+
+#startup_submit:hover, #talent_submit:hover {
+  -webkit-transform: scale(1.2,1.2);
+  -webkit-transition-timing-function: ease-out;
+  -moz-transform: scale(1.2,1.2);
+  -moz-transition-timing-function: ease-out;
+  color: white;
+}
+
 /***** About you *****/
 
 .about-you ul {
@@ -521,7 +538,7 @@ h3.about-curious:hover {
 .testimonial-single-image {
   display: inline-block;
   width: 200px;
-  margin: 0 5px 10px 5px;
+  margin: 0 10px 10px 10px;
 }
 
 .testimonial-single-image img {
@@ -531,7 +548,14 @@ h3.about-curious:hover {
   // opacity: 0.5;
   cursor: pointer;
   @include radius( 4px );
-  @include transition( all, 0.3s );
+  @include transition( all, 0.4s );
+}
+
+.testimonial-single-image img:hover {
+  -webkit-transform: scale(1.2,1.2);
+  -webkit-transition-timing-function: ease-out;
+  -moz-transform: scale(1.2,1.2);
+  -moz-transition-timing-function: ease-out;
 }
 
 .testimonial-active {
@@ -748,14 +772,23 @@ footer img {
   width: 100px;
 }
 
-.ultm-facebook, 
-.ultm-facebook.ultm-gray-to-color:hover {
-  background-color: #133783
+.ultm-facebook {
+  background-color: #133783;
 }
 
-.ultm-twitter, 
-.ultm-twitter.ultm-gray-to-color:hover {
-  background-color: #4099FF
+.ultm-twitter {
+  background-color: #4099FF;
+}
+
+.ultm-twitter, .ultm-facebook {
+  @include transition( all, 0.5s );
+}
+
+.ultm-facebook:hover, 
+.ultm-twitter:hover {
+  border: solid 4px white;
+  -webkit-transform: translate(-2px,-5px); /* Chrome, Safari, Opera */
+  transform: translate(-2px,-5px);
 }
 
 /***** Registration new *****/
