@@ -1,6 +1,20 @@
 class Notifier < ActionMailer::Base
   default from: "W Hub Administrator <whub.hk@gmail.com>"
 
+  @@ADMIN_EMAIL = "whub.hk@gmail.com"
+
+  def subscription_request(subscriber)
+    @subscriber = subscriber
+
+    mail to: @subscriber.email, subject: "[W Hub] Please confirm your subscription"
+  end
+
+  def subscription_validated(subscriber)
+    @subscriber = subscriber
+
+    mail to: @@ADMIN_EMAIL, subject: "[W Hub] New subscriber!"
+  end
+
   def password_reset_request(user)
     @user = user
 
@@ -25,16 +39,16 @@ class Notifier < ActionMailer::Base
     mail to: @user.email, subject: "[W Hub] Thank you for registering"
   end
 
-  def contact(message, markdown)
-    @message = message
+  def contact(contact, markdown)
+    @contact = contact
     @markdown = markdown
 
-    mail to: "whub.hk@gmail.com", subject: @message.subject
+    mail to: @@ADMIN_EMAIL, subject: @contact.subject
   end
 
-  def contact_reply(message)
-    @message = message
+  def contact_reply(contact)
+    @contact = contact
 
-    mail to: @message.email, subject: "[W Hub] Thank you for contacting us"
+    mail to: @contact.email, subject: "[W Hub] Thank you for contacting us"
   end
 end

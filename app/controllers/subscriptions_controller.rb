@@ -1,13 +1,13 @@
 class SubscriptionsController < ApplicationController
 
   def new
-    if registrant = Registrant.find_by_code(params[:code])
-      user = User.new email: registrant.email, user_category: registrant.user_category
+    if subscriber = Subscriber.find_by_code(params[:code])
+      subscriber.code = nil
+      subscriber.expires_at = nil
 
-      if user.save
-        registrant.destroy
-        Notifier.registration(user).deliver
-        render "new", layout: false
+      if subscriber.save
+        Notifier.subscriber_validated(subscriber).deliver
+        render "new"
         return
       end
     end
@@ -19,12 +19,7 @@ class SubscriptionsController < ApplicationController
     registrant = Registrant.create(subscription_params)
 
     if registrant.valid?
-      if Notifier.registration_request(registrant).deliver
-        render json: {
-          message: "Thank you, #{registrant.email}. We'll be in touch.",
-          valid: true
-        }
-      else
+      unless Notifier.registration_request(registrant).deliver
         render json: {
           message: "There was a problem sending a validation email. Please try again later.",
           valid: false

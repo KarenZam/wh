@@ -3,8 +3,6 @@ class MessagesController < ApplicationController
 
   def index
     @messages = Message.all
-
-    render layout: 'layouts/admin'
   end
 
   def show

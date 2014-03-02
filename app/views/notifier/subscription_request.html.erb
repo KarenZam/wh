@@ -1,0 +1,18 @@
+<p>
+  Thank you for subscribing to W Hub! To complete your subscription,
+  please follow the link below:
+</p>
+
+<p>
+  <%= link_to subscription_url(@subscriber.code), subscription_url(@subscriber.code) %>
+</p>
+
+<p>
+  If you received this email in error, simply do nothing. The above link
+  will expire at <%= @subscriber.expires_at.strftime("%-I:%M on %a, %-d %b %Y") %>.
+</p>
+
+<p>
+  Thanks!<br>
+  The W Hub Team
+</p>

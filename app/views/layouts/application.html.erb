@@ -18,9 +18,9 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <%= stylesheet_link_tag "application", media: "all" %>
 
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <!-- <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "application" %> -->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -29,8 +29,9 @@
     <![endif]-->
   </head>
   <body>
-    <%= yield %>
-    <%= render partial: "layouts/footer" %>
+    <div class="container">
+      <%= yield %>
+    </div>
     <%= render partial: "layouts/messages" %>
   </body>
 </html>
