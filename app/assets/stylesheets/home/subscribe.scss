@@ -1,0 +1,41 @@
+@import "mixins";
+
+.subscribe {
+  margin-top: 60px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.subscribe h2 {
+  color: $medium-gray;
+  font-size: $subscribe-header-font-size;
+  line-height: $subscribe-header-line-height;
+  margin: 0;
+  padding: 0;
+}
+
+.subscribe header p {
+  color: $light-gray;
+  font-size: $subscribe-font-size;
+  line-height: $subscribe-line-height;
+  margin-top: 30px;
+}
+
+#subscriber-form input {
+  font-size: 20px;
+  margin: 5px 0;
+}
+
+#subscriber-email {
+  width: 100%;
+}
+
+#subscriber-submit {
+  background-color: $green;
+  @include transition( all, .6s );
+}
+
+#subscriber-submit:hover {
+  color: $white;
+  @include scale( 1.2, 1.2, ease-out );
+}

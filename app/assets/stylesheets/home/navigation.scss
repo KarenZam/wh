@@ -1,0 +1,77 @@
+@import "mixins";
+
+header[role=banner] nav {
+  background-color: $medium-dark-gray;
+  color: $white;
+  display: none;
+  font-size: $navbar-font-size;
+  left: 0;
+  line-height: $navbar-line-height;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 102%;
+  z-index: 998;
+}
+
+header[role=banner] nav a {
+  color: $white;
+  display: inline-block;
+  margin: 0 15px;
+  padding: 10px 0;
+}
+
+header[role=banner] nav a:hover { color: $orange; }
+
+header[role=banner] nav a:focus { color: $white;  }
+
+.show-menu,
+.hide-menu {
+  margin: 0;
+  padding: 0 20px;
+  position: absolute;
+  right: -15px;
+  text-align: center;
+  top: -6px;
+  z-index: 999;
+}
+
+.hide-menu {
+  margin: 0 20px;
+  opacity: 0;
+  padding: 5px 0;
+  right: -25px;
+}
+
+.show-menu a,
+.hide-menu a {
+  background-color: $medium-dark-gray;
+  color: $white;
+  display: inline-block;
+  font-size: $menu-toggle-font-size;
+  height: $menu-toggle-height;
+  padding-top: 12px;
+  width: $menu-toggle-width;
+  @include radius( 4px );
+}
+
+.show-menu a:hover,
+.hide-menu a:hover {
+  color: $white;
+}
+
+.backstretch img {
+  @include blur( 1px );
+}
+
+@media (max-width: 979px) {
+
+  .hide-menu {
+    opacity: 1;
+  }
+
+  nav {
+    opacity: .9;
+  }
+
+}

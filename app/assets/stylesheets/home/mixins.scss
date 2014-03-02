@@ -1,0 +1,84 @@
+$white:                    rgba( 255, 255, 255, 1.0 );
+$off-white:                rgba( 238, 238, 238, 1.0 );
+$very-light-gray:          rgba( 204, 204, 204, 1.0 );
+$light-gray:               rgba( 136, 136, 136, 1.0 );
+$medium-gray:              rgba(  85,  85,  85, 1.0 );
+$medium-dark-gray:         rgba(  61,  61,  61, 1.0 );
+$orange:                   rgba( 255, 110,   0, 1.0 );
+$blue:                     rgba(  2,  118, 253, 1.0 );
+$green:                    rgba(  20, 209,   0, 1.0 );
+$black:                    rgba(   0,   0,   0, 1.0 );
+$translucent-black:        rgba(   0,   0,   0,  .4 );
+$translucent-medium-blue:  rgba(   0,   0, 139,  .4 );
+$translucent-white:        rgba( 255, 255, 255,  .6 );
+$facebook-color:           rgba(  19,  55, 131, 1.0 );
+$twitter-color:            rgba(  64, 153, 255, 1.0 );
+
+$navbar-font-size: 14px;
+$navbar-line-height: 32px;
+
+$menu-toggle-font-size: 21px;
+$menu-toggle-width: 46px;
+$menu-toggle-height: 48px;
+
+$countdown-font-size: 28px;
+$countdown-line-height: 42px;
+
+$subscribe-header-font-size: 48px;
+$subscribe-header-line-height: 60px;
+
+$subscribe-font-size: 36px;
+$subscribe-line-height: 42px;
+
+$timer-font-size: 70px;
+$timer-line-height: 80px;
+
+$form-font-size: 22px;
+
+$user-benefits-font-size: 18px;
+$user-benefits-line-height: 32px;
+
+$noty-message-font-size: 22px;
+$noty-message-line-height: 36px;
+
+@mixin radius( $size ) {
+  -moz-border-radius: $size;
+  -webkit-border-radius: $size;
+  border-radius: $size;
+}
+
+@mixin transition( $type, $time ) {
+  -o-transition: $type $time;
+  -moz-transition: $type $time;
+  -webkit-transition: $type $time;
+  -ms-transition: $type $time;
+  transition: $type $time;
+}
+
+@mixin box-shadow( $type ) {
+  -moz-box-shadow: $type;
+  -webkit-box-shadow: $type;
+  box-shadow: $type;
+}
+
+@mixin scale( $x, $y, $method ) {
+  -webkit-transform: scale( $x, $y );
+  -webkit-transition-timing-function: $method;
+  -moz-transform: scale( $x, $y );
+  -moz-transition-timing-function: $method;
+  transform: scale( $x, $y );
+  transition-timing-function: $method;
+}
+
+@mixin translate( $x, $y ) {
+  -webkit-transform: translate( $x, $y );
+  transform: translate( $x, $y );
+}
+
+@mixin blur( $radius ) {
+  -webkit-filter: blur( $radius );
+  -moz-filter: blur( $radius );
+  -o-filter: blur( $radius );
+  -ms-filter: blur( $radius );
+  filter: blur( $radius );
+}

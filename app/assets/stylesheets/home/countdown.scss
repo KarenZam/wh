@@ -1,0 +1,146 @@
+@import "mixins";
+
+.countdown {
+  color: $white;
+  margin: 0 auto;
+  padding: 75px 0 40px;
+  text-align: center;
+}
+
+.countdown-block {
+  background-color: $translucent-medium-blue;
+  padding: 30px 10px;
+  @include radius( 10px );
+}
+
+.countdown h1 {
+  font-size: 60px;
+  font-weight: normal;
+}
+
+.countdown p {
+  font-size: $countdown-font-size;
+  font-weight: 100;
+  line-height: $countdown-line-height;
+  margin: 40px 0 10px;
+  padding: 0 50px;
+}
+
+.timer {
+  margin-top: 60px;
+}
+
+.timer .days-wrapper,
+.timer .hours-wrapper,
+.timer .minutes-wrapper,
+.timer .seconds-wrapper {
+  border: 1px solid $white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 20px;
+  height: 140px;
+  margin: 0 20px;
+  padding-top: 20px;
+  width: 140px;
+  @include radius( 85px );
+  @include transition( all,  .3s );
+}
+
+.timer .days-wrapper:hover,
+.timer .hours-wrapper:hover,
+.timer .minutes-wrapper:hover,
+.timer .seconds-wrapper:hover {
+  background: $orange;
+  border: 1px solid $orange;
+  cursor: default;
+  @include transition( all,  .3s );
+}
+
+.timer .days,
+.timer .hours,
+.timer .minutes,
+.timer .seconds {
+  font-size: $timer-font-size;
+  font-weight: 100;
+  line-height: $timer-line-height;
+}
+
+.countdown p.top-arrow {
+  font-size: 36px;
+  margin-top: 50px;
+}
+
+.countdown p.top-arrow i {
+  cursor: pointer;
+  height: 37px;
+  overflow: hidden;
+  position: relative;
+  width: 100px;
+}
+
+.countdown p.top-arrow i:before {
+  left: 33.5px;
+  position: absolute;
+  top: 0;
+}
+
+.countdown p.top-arrow i:after {
+  content: "scroll down";
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  left: 0;
+  position: absolute;
+  top: -30px;
+  width: 100px;
+}
+
+.countdown p.top-arrow i:before,
+.countdown p.top-arrow i:after {
+  @include transition( all,  .3s );
+}
+
+.countdown p.top-arrow i:hover:before { top: 40px; }
+
+.countdown p.top-arrow i:hover:after { top: 10px; }
+
+@media (max-width: 979px) {
+
+  header img {
+    width: 50%;
+  }
+
+  .countdown-block {
+    margin: 5px;
+    padding: 5px 5px 5px 15px;
+  }
+
+  .countdown p {
+    font-size: 18px;
+    font-weight: 100;
+    line-height: 28px;
+    margin: 20px 0 10px;
+    padding: 0 10px;
+  }
+
+  .timer .days,
+  .timer .hours,
+  .timer .minutes,
+  .timer .seconds {
+    font-size: 30px;
+    font-weight: 100;
+    line-height: 33px;
+  }
+
+  .timer .days-wrapper,
+  .timer .hours-wrapper,
+  .timer .minutes-wrapper,
+  .timer .seconds-wrapper {
+    font-size: 12px;
+    height: 70px;
+    margin: 5px;
+    padding-top: 7px;
+    width: 70px;
+  }
+
+}

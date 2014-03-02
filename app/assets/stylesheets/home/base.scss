@@ -1,0 +1,53 @@
+@import "mixins";
+
+body {
+  background-color: $white;
+  font-family: Oxygen, sans-serif;
+  font-weight: 300;
+}
+
+body h3 {
+  font-weight: 700;
+}
+
+body h1,
+body h2 {
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin-top: 10px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+a,
+a:hover,
+a:focus {
+  color: $orange;
+  text-decoration: none;
+  @include transition( all,  .3s );
+}
+
+.noty_text {
+  font-size: $noty-message-font-size;
+  font-weight: 100;
+  line-height: $noty-message-line-height;
+}
+
+.generic-style {
+  color: $orange;
+}
+
+.startup-style {
+  color: $blue;
+}
+
+.talent-style {
+  color: $green;
+}

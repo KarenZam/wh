@@ -1,30 +1,25 @@
-<article id="register" class="container">
+<article id="subscribe" class="container">
   <div class="row">
-    <div class="col-md-12 register">
+    <div class="col-md-12 subscribe">
       <header>
-        <h2>
-          Don't miss out!
-          <br><br>
-          <span class="generic-style">Sign up now</span> to get a place for our private beta version</h2>
-          <br>
+        <h2>Don't miss out!</h2>
+        <p>
+          <span class="generic-style">Sign up now</span> to get a place in our private beta version.
+        </p>
       </header>
-      <form accept-charset="UTF-8" action="<%= login_url %>" id="registration-form" method="post" class="form-inline">
+      <form accept-charset="UTF-8" action="<%= login_url %>" id="subscription-form" method="post" class="form-inline">
         <div class="row">
-          <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
-            <label for="user_email" class="sr-only">Email</label>
-            <input type="email" id="user_email" name="email" placeholder="Enter your email address..." class="form-control" required>
+          <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12">
+            <label for="subscriber-email" class="sr-only">Email</label>
+            <input type="email" id="subscriber-email" name="email" placeholder="Enter your email address..." class="form-control" required>
           </div>
-          <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 talent-style">
-            <input type="submit" id="talent_submit" name="talent" value="I am talent" class="btn">
-          </div>
-          <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 startup-style">
-            <input type="submit" id="startup_submit" name="startup" value="I am a startup" class="btn">
-            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 talent-style">
+            <input type="submit" id="subscriber-submit" name="talent" value="Sign up now!" class="btn">
           </div>
         </div>
       </form>
-      <div class="registration success-message"></div>
-      <div class="registration error-message"></div>
+      <div class="subscription success-message"></div>
+      <div class="subscription error-message"></div>
     </div>
   </div>
 </article>

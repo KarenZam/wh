@@ -1,0 +1,26 @@
+@import "mixins";
+
+.contact-us {
+  margin-bottom: 60px;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.contact-us h2 {
+  color: $medium-gray;
+  font-size: 46px;
+  line-height: 50px;
+}
+
+.contact-us p {
+  color: $light-gray;
+  font-size: 22px;
+  line-height: 36px;
+  margin-top: 30px;
+  padding: 0 120px;
+}
+
+.contact.error-message {
+  font-size: 16px;
+  text-align: left;
+}

@@ -1,0 +1,137 @@
+@import "mixins";
+
+.about-you ul {
+  font-size: $user-benefits-font-size;
+  text-align: left;
+}
+
+.about-you ul li {
+  line-height: $user-benefits-line-height;
+  list-style: none;
+}
+
+.about-you {
+  background-color: $medium-dark-gray;
+  color: $white;
+  margin: 60px auto 0;
+  padding-bottom: 60px;
+  text-align: center;
+}
+
+.about-you p {
+  text-align: left;
+}
+
+.about-you > div > header {
+  margin-top: 60px;
+  padding-bottom: 10px;
+}
+
+.about-you > div > header > div,
+.about-you aside > div {
+  background-color: $translucent-black;
+  padding: 20px;
+  @include radius( 10px );
+}
+
+.about-you h2 {
+  font-size: 46px;
+  font-weight: 300;
+  line-height: 50px;
+}
+
+.about-you p {
+  font-size: 22px;
+  line-height: 36px;
+  margin-top: 30px;
+  padding: 0 120px;
+}
+
+.about-you aside > div {
+  margin-top: 30px;
+}
+
+.about-you aside h3 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 34px;
+  padding: 10px 0;
+}
+
+.about-you aside p {
+  font-size: 18px;
+  line-height: 32px;
+}
+
+.about-icon {
+  background: transparent;
+  border: 3px solid $white;
+  font-size: 56px;
+  height: 140px;
+  margin: 0 auto;
+  padding-top: 25px;
+  width: 140px;
+  @include radius( 85px );
+  @include transition( all,  .3s );
+}
+
+.about-icon.about-startup:hover {
+  background-color: $blue;
+  border: 1px solid $blue;
+}
+
+h3.about-startup:hover {
+  color: $blue;
+}
+
+.about-icon.about-talent:hover {
+  background-color: $green;
+  border: 1px solid $green;
+}
+
+h3.about-talent:hover {
+  color: $green;
+}
+
+.about-icon.about-curious:hover {
+  background-color: $orange;
+  border: 1px solid $orange;
+}
+
+h3.about-curious:hover {
+  color: $orange;
+}
+
+.about-icon > i {
+  color: $white;
+}
+
+.about-icon:hover > i {
+  color: $white;
+}
+
+@media (max-width: 979px) {
+
+  .about-you > div > header > div {
+    margin: 0 15px;
+    padding: 10px;
+  }
+
+  .about-you h2 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .about-you ul {
+    font-size: 16px;
+    padding-left: 20px;
+  }
+
+  .about-you p {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 15px;
+    padding: 0 4px;
+  }
+
+}

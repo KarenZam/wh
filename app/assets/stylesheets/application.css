@@ -8,14 +8,6 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require ./vendor/font-awesome.min
- *= require ./vendor/ultm-general
- *= require ./vendor/ultm-sizes
- *= require ./vendor/ultm-shapes
- *= require ./vendor/ultm-bg-colors
- *= require ./vendor/ultm-bg-images-48
- *= require ./vendor/ultm-effects
- *= require ./vendor/media-queries
  */
 
 dt {
