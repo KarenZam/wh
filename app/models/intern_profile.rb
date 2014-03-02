@@ -1,3 +1,0 @@
-class InternProfile < Profile
-
-end

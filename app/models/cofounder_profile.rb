@@ -1,3 +1,0 @@
-class CofounderProfile < Profile
-
-end

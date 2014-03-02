@@ -1,3 +1,0 @@
-class TalentProfile < Profile
-
-end
