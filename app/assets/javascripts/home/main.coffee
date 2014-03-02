@@ -125,7 +125,7 @@ $ ->
   $('.error-message').hide()
 
   sendSubcription = ->
-    email = $('#subscriber_email').val()
+    email = $('#subscriber-email').val()
     message = "Thank you, #{email}. We'll be in touch."
 
     data =
@@ -147,7 +147,7 @@ $ ->
 
     posting.done (data) ->
       unless data["valid"]
-        $('#subscriber_email').focus()
+        $('#subscriber-email').focus()
         $('.subscription.success-message').hide()
         $('.subscription.error-message').hide()
         $('.subscription.error-message').html data["message"]
