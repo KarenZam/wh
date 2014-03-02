@@ -9,7 +9,7 @@ class Notifier < ActionMailer::Base
     mail to: @subscriber.email, subject: "[W Hub] Please confirm your subscription"
   end
 
-  def subscription_validated(subscriber)
+  def subscriber_validated(subscriber)
     @subscriber = subscriber
 
     mail to: @@ADMIN_EMAIL, subject: "[W Hub] New subscriber!"
