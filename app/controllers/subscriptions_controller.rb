@@ -8,7 +8,7 @@ class SubscriptionsController < ApplicationController
 
       if subscriber.save
         Notifier.subscriber_validated(subscriber).deliver
-        render "new"
+        render "new", layout: false
         return
       end
     end
