@@ -8,9 +8,11 @@ $orange:                   rgba( 255, 110,   0, 1.0 );
 $blue:                     rgba(  2,  118, 253, 1.0 );
 $green:                    rgba(  20, 209,   0, 1.0 );
 $black:                    rgba(   0,   0,   0, 1.0 );
-$translucent-black:        rgba(   0,   0,   0, 0.4 );
-$translucent-medium-blue:  rgba(   0,   0, 139, 0.4 );
-$translucent-white:        rgba( 255, 255, 255, 0.6 );
+$translucent-black:        rgba(   0,   0,   0,  .4 );
+$translucent-medium-blue:  rgba(   0,   0, 139,  .4 );
+$translucent-white:        rgba( 255, 255, 255,  .6 );
+$facebook-color:           rgba(  19,  55, 131, 1.0 );
+$twitter-color:            rgba(  64, 153, 255, 1.0 );
 
 $navbar-font-size: 14px;
 $navbar-line-height: 32px;
@@ -53,21 +55,50 @@ $noty-message-line-height: 36px;
   box-shadow: $type;
 }
 
+@mixin scale( $x, $y, $method ) {
+  -webkit-transform: scale( $x, $y );
+  -webkit-transition-timing-function: $method;
+  -moz-transform: scale( $x, $y );
+  -moz-transition-timing-function: $method;
+  transform: scale( $x, $y );
+  transition-timing-function: $method;
+}
+
+@mixin translate( $x, $y ) {
+  -webkit-transform: translate( $x, $y );
+  transform: translate( $x, $y );
+}
+
+@mixin blur( $radius ) {
+  -webkit-filter: blur( $radius );
+  -moz-filter: blur( $radius );
+  -o-filter: blur( $radius );
+  -ms-filter: blur( $radius );
+  filter: blur( $radius );
+}
+
+
+// ***** STYLE RULES *****
+
 body {
-  font-family: 'Oxygen', sans-serif;
-  font-weight: 300;
   background-color: $white;
+  font-family: Oxygen, sans-serif;
+  font-weight: 300;
 }
 
 body h3 {
   font-weight: 700;
 }
 
-body h1, body h2 {
+body h1,
+body h2 {
   font-weight: 400;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   margin-top: 10px;
 }
 
@@ -80,7 +111,7 @@ a:hover,
 a:focus {
   color: $orange;
   text-decoration: none;
-  @include transition( all, 0.3s );
+  @include transition( all,  .3s );
 }
 
 .noty_text {
@@ -90,152 +121,152 @@ a:focus {
 }
 
 
-/***** Page navigation *****/
+// ***** Page navigation *****
 
 header[role=banner] nav {
-  display: none;
-  position: fixed;
-  z-index: 998;
-  top: 0;
-  left: 0;
-  width: 102%;
-  font-size: $navbar-font-size;
-  line-height: $navbar-line-height;
-  text-align: center;
-  color: $white;
   background-color: $medium-dark-gray;
+  color: $white;
+  display: none;
+  font-size: $navbar-font-size;
+  left: 0;
+  line-height: $navbar-line-height;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 102%;
+  z-index: 998;
 }
 
 header[role=banner] nav a {
+  color: $white;
   display: inline-block;
   margin: 0 15px;
   padding: 10px 0;
-  color: $white;
 }
+
 header[role=banner] nav a:hover { color: $orange; }
+
 header[role=banner] nav a:focus { color: $white;  }
 
 .show-menu,
 .hide-menu {
-  position: absolute;
-  z-index: 999;
-  top: -6px;
-  right: -15px;
   margin: 0;
   padding: 0 20px;
+  position: absolute;
+  right: -15px;
   text-align: center;
+  top: -6px;
+  z-index: 999;
 }
 
 .hide-menu {
-  right: -25px;
   margin: 0 20px;
-  padding: 5px 0;
   opacity: 0;
+  padding: 5px 0;
+  right: -25px;
 }
 
 .show-menu a,
 .hide-menu a {
+  background-color: $medium-dark-gray;
+  color: $white;
   display: inline-block;
-  width: $menu-toggle-width;
+  font-size: $menu-toggle-font-size;
   height: $menu-toggle-height;
   padding-top: 12px;
-  font-size: $menu-toggle-font-size;
-  color: $white;
-  background-color: $medium-dark-gray;
+  width: $menu-toggle-width;
   @include radius( 4px );
 }
+
 .show-menu a:hover,
 .hide-menu a:hover {
   color: $white;
 }
 
 .backstretch img {
-  -webkit-filter: blur(1px);
-  -moz-filter: blur(1px);
-  -o-filter: blur(1px);
-  -ms-filter: blur(1px);
-  filter: blur(1px);
+  @include blur( 1px );
 }
 
-/***** Forms *****/
+// ***** Forms *****
 
 form {
   margin-top: 20px;
 }
 
 form legend {
-  padding: 0 0 10px;
+  border: 0;
+  color: $medium-gray;
   font-size: 30px;
   font-weight: 100;
   line-height: 34px;
+  padding: 0 0 10px;
   text-align: left;
-  border: none;
-  color: $medium-gray;
 }
 
 form input[type=email],
 form input[type=text] {
-  width: 100%;
-  height: 50px;
   font-size: $form-font-size;
+  height: 50px;
+  width: 100%;
 }
 
 form textarea.form-control {
-  width: 100%;
-  height: 8em;
   font-size: $form-font-size;
+  height: 8em;
+  width: 100%;
 }
 
 form input[type=submit] {
-  width: 100%;
-  height: 52px;
-  font-size: $form-font-size;
-  color: $white;
   background-color: $orange;
+  color: $white;
+  font-size: $form-font-size;
+  height: 52px;
+  width: 100%;
 }
 
 form input[type=submit]:hover,
 form input[type=submit]:active {
-  color: $light-gray;
   background-color: $off-white;
-  @include transition( all, 0.3s );
+  color: $light-gray;
   @include box-shadow( none );
+  @include transition( all,  .3s );
 }
 
 form .input-group {
-  width: 100%;
   margin-bottom: 20px;
   text-align: left;
+  width: 100%;
 }
 
-.success-message, .error-message {
-  font-size: 22px;
+.success-message,
+.error-message {
   color: $light-gray;
+  font-size: 22px;
   line-height: 36px;
 }
 
 .success-message {
-  margin: 20px 0 10px 0;
+  margin: 20px 0 10px;
 }
 
 .error-message {
-  margin: 10px 0;
   color: $orange;
+  margin: 10px 0;
 }
 
 
-/***** Countdown! *****/
+// ***** Countdown! *****
 
 .countdown {
+  color: $white;
   margin: 0 auto;
   padding: 75px 0 40px;
   text-align: center;
-  color: $white;
 }
 
 .countdown-block {
-  padding: 30px 10px 30px;
   background-color: $translucent-medium-blue;
+  padding: 30px 10px;
   @include radius( 10px );
 }
 
@@ -245,11 +276,11 @@ form .input-group {
 }
 
 .countdown p {
-  margin: 40px 0 10px;
-  padding: 0 50px;
   font-size: $countdown-font-size;
   font-weight: 100;
   line-height: $countdown-line-height;
+  margin: 40px 0 10px;
+  padding: 0 50px;
 }
 
 .timer {
@@ -260,16 +291,16 @@ form .input-group {
 .timer .hours-wrapper,
 .timer .minutes-wrapper,
 .timer .seconds-wrapper {
-  display: inline-block;
+  border: 1px solid $white;
   cursor: pointer;
-  width: 140px;
+  display: inline-block;
+  font-size: 20px;
   height: 140px;
   margin: 0 20px;
   padding-top: 20px;
-  border: 1px solid $white;
-  font-size: 20px;
+  width: 140px;
   @include radius( 85px );
-  @include transition( all, 0.3s );
+  @include transition( all,  .3s );
 }
 
 .timer .days-wrapper:hover,
@@ -278,8 +309,8 @@ form .input-group {
 .timer .seconds-wrapper:hover {
   background: $orange;
   border: 1px solid $orange;
-  @include transition( all, 0.3s );
   cursor: default;
+  @include transition( all,  .3s );
 }
 
 .timer .days,
@@ -292,70 +323,71 @@ form .input-group {
 }
 
 .countdown p.top-arrow {
-  margin-top: 50px;
   font-size: 36px;
+  margin-top: 50px;
 }
 
 .countdown p.top-arrow i {
-  position: relative;
-  width: 100px;
+  cursor: pointer;
   height: 37px;
   overflow: hidden;
-  cursor: pointer;
+  position: relative;
+  width: 100px;
 }
 
 .countdown p.top-arrow i:before {
+  left: 33.5px;
   position: absolute;
   top: 0;
-  left: 33.5px;
 }
 
 .countdown p.top-arrow i:after {
   content: "scroll down";
-  position: absolute;
-  top: -30px;
-  left: 0;
-  width: 100px;
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   font-weight: 300;
+  left: 0;
+  position: absolute;
+  top: -30px;
+  width: 100px;
 }
 
 .countdown p.top-arrow i:before,
 .countdown p.top-arrow i:after {
-  @include transition( all, 0.3s );
+  @include transition( all,  .3s );
 }
 
 .countdown p.top-arrow i:hover:before { top: 40px; }
+
 .countdown p.top-arrow i:hover:after { top: 10px; }
 
 
-/***** Subscription form *****/
+// ***** Subscription form *****
 
 .subscribe {
   margin-top: 60px;
-  text-align: center;
   padding-bottom: 10px;
+  text-align: center;
 }
 
 .subscribe h2 {
-  margin: 0;
-  padding: 0;
+  color: $medium-gray;
   font-size: 47px;
   line-height: 50px;
-  color: $medium-gray;
+  margin: 0;
+  padding: 0;
 }
 
 .subscribe p {
-  margin-top: 30px;
-  font-size: 22px;
   color: $light-gray;
+  font-size: 22px;
   line-height: 36px;
+  margin-top: 30px;
 }
 
 #subscriber-form input {
   font-size: 20px;
-  margin: 5px 0 5px 0;
+  margin: 5px 0;
 }
 
 #subscriber_email {
@@ -367,20 +399,15 @@ form .input-group {
 }
 
 #subscriber_submit {
-  @include transition( all, 0.6s );
+  @include transition( all, .6s );
 }
 
 #subscriber_submit:hover {
-  -webkit-transform: scale(1.2,1.2);
-  -webkit-transition-timing-function: ease-out;
-  -moz-transform: scale(1.2,1.2);
-  -moz-transition-timing-function: ease-out;
-  transform: scale(1.2,1.2);
-  transition-timing-function: ease-out;
-  color: white;
+  color: $white;
+  @include scale( 1.2, 1.2, ease-out );
 }
 
-/***** About you *****/
+// ***** About you *****
 
 .about-you ul {
   font-size: $user-benefits-font-size;
@@ -393,11 +420,11 @@ form .input-group {
 }
 
 .about-you {
+  background-color: $medium-dark-gray;
+  color: $white;
   margin: 60px auto 0;
   padding-bottom: 60px;
   text-align: center;
-  color: $white;
-  background-color: $medium-dark-gray;
 }
 
 .about-you p {
@@ -411,22 +438,22 @@ form .input-group {
 
 .about-you > div > header > div,
 .about-you aside > div {
-  padding: 20px;
   background-color: $translucent-black;
+  padding: 20px;
   @include radius( 10px );
 }
 
 .about-you h2 {
   font-size: 46px;
-  line-height: 50px;
   font-weight: 300;
+  line-height: 50px;
 }
 
 .about-you p {
-  margin-top: 30px;
-  padding: 0 120px;
   font-size: 22px;
   line-height: 36px;
+  margin-top: 30px;
+  padding: 0 120px;
 }
 
 .about-you aside > div {
@@ -434,10 +461,10 @@ form .input-group {
 }
 
 .about-you aside h3 {
-  padding: 10px 0;
   font-size: 30px;
   font-weight: 700;
   line-height: 34px;
+  padding: 10px 0;
 }
 
 .about-you aside p {
@@ -458,20 +485,20 @@ form .input-group {
 }
 
 .about-icon {
-  width: 140px;
+  background: transparent;
+  border: 3px solid $white;
+  font-size: 56px;
   height: 140px;
   margin: 0 auto;
   padding-top: 25px;
-  font-size: 56px;
-  border: 3px solid $white;
-  background: transparent;
+  width: 140px;
   @include radius( 85px );
-  @include transition( all, 0.3s );
+  @include transition( all,  .3s );
 }
 
 .about-icon.about-startup:hover {
-  border: 1px solid $blue;
   background-color: $blue;
+  border: 1px solid $blue;
 }
 
 h3.about-startup:hover {
@@ -479,8 +506,8 @@ h3.about-startup:hover {
 }
 
 .about-icon.about-talent:hover {
-  border: 1px solid $green;
   background-color: $green;
+  border: 1px solid $green;
 }
 
 h3.about-talent:hover {
@@ -488,8 +515,8 @@ h3.about-talent:hover {
 }
 
 .about-icon.about-curious:hover {
-  border: 1px solid $orange;
   background-color: $orange;
+  border: 1px solid $orange;
 }
 
 h3.about-curious:hover {
@@ -504,7 +531,7 @@ h3.about-curious:hover {
   color: $white;
 }
 
-/***** Testimonials *****/
+// ***** Testimonials *****
 
 .testimonials {
   margin-top: 60px;
@@ -513,16 +540,16 @@ h3.about-curious:hover {
 }
 
 .testimonials h2 {
-  font-size: 46px;
   color: $medium-gray;
+  font-size: 46px;
   line-height: 50px;
 }
 
 .testimonials p {
-  margin-top: 30px;
-  font-size: 22px;
   color: $light-gray;
+  font-size: 22px;
   line-height: 36px;
+  margin-top: 30px;
 }
 
 .testimonial-single {
@@ -535,27 +562,21 @@ h3.about-curious:hover {
 
 .testimonial-single-image {
   display: inline-block;
+  margin: 0 10px 10px;
   width: 200px;
-  margin: 0 10px 10px 10px;
 }
 
 .testimonial-single-image img {
-  max-width: 200px;
-  max-height: 100px;
-  margin: 10px;
-  // opacity: 0.5;
   cursor: pointer;
+  margin: 10px;
+  max-height: 100px;
+  max-width: 200px;
   @include radius( 4px );
-  @include transition( all, 0.4s );
+  @include transition( all,  .4s );
 }
 
 .testimonial-single-image img:hover {
-  -webkit-transform: scale(1.2,1.2);
-  -webkit-transition-timing-function: ease-out;
-  -moz-transform: scale(1.2,1.2);
-  -moz-transition-timing-function: ease-out;
-  transform: scale(1.2,1.2);
-  transition-timing-function: ease-out;
+  @include scale( 1.2, 1.2, ease-out );
 }
 
 .testimonial-active {
@@ -563,19 +584,18 @@ h3.about-curious:hover {
 }
 
 .testimonial-quote {
-  // font-family: Georgia, serif;
+  color: $very-light-gray;
   font-size: 90px;
   line-height: 70px;
-  color: $very-light-gray;
 }
 
 
-/***** About us *****/
+// ***** About us *****
 
 .about-us {
+  color: $white;
   margin: 0 auto;
   padding-bottom: 60px;
-  color: $white;
   text-align: center;
 }
 
@@ -590,10 +610,10 @@ h3.about-curious:hover {
 }
 
 .about-us > div > header p {
-  margin-top: 30px;
-  padding: 0 120px;
   font-size: 22px;
   line-height: 36px;
+  margin-top: 30px;
+  padding: 0 120px;
 }
 
 .about-us aside {
@@ -603,9 +623,9 @@ h3.about-curious:hover {
 .about-us > div > header > div,
 .about-us aside {
   background-color: $orange;
-  opacity: 0.8;
+  opacity: .8;
   padding: 30px;
-  border-radius: 10px;
+  @include radius( 10px );
 }
 
 .about-us aside p {
@@ -613,17 +633,17 @@ h3.about-curious:hover {
 }
 
 .about-us aside h3 {
-  padding: 10px 0 0 0;
   font-size: 30px;
   line-height: 34px;
+  padding: 10px 0 0;
 }
 
 .about-us aside .our-position {
-  padding-bottom: 7px;
+  color: $white;
   font-size: 15px;
   font-weight: 300;
   line-height: 22px;
-  color: $white;
+  padding-bottom: 7px;
   text-transform: uppercase;
 }
 
@@ -633,62 +653,60 @@ h3.about-curious:hover {
 }
 
 .about-us aside .about-us-photo {
-  position: relative;
-  width: 142px;
+  cursor: pointer;
   height: 142px;
   margin: 0 auto;
   overflow: hidden;
-  cursor: pointer;
+  position: relative;
+  width: 142px;
 }
 
 .about-us aside .about-us-photo img {
   width: 100%;
-  -moz-border-radius: 85px;
-  -webkit-border-radius: 85px;
-  border-radius: 85px;
+  @include radius( 85px );
 }
 
 .about-us aside .about-us-photo .about-us-social {
+  background: $orange;
+  height: 84px;
+  left: 0;
+  opacity: 0;
+  padding-top: 58px;
   position: absolute;
   top: -150px;
-  left: 0;
   width: 142px;
-  height: 84px;
-  padding-top: 58px;
-  background: $orange;
-  opacity: 0;
   @include radius( 85px );
-  @include transition( all, 0.4s );
+  @include transition( all,  .4s );
 }
 
-.about-us aside .about-us-photo:hover .about-us-social {
-  top: 0;
+.about-us .about-us-photo:hover .about-us-social {
   opacity: 1;
+  top: 0;
 }
 
-.about-us aside .about-us-photo .about-us-social,
-.about-us aside .about-us-photo .about-us-social a,
-.about-us aside .about-us-photo .about-us-social a:hover {
-  font-size: 18px;
+.about-us .about-us-photo .about-us-social,
+.about-us .about-us-photo .about-us-social a,
+.about-us .about-us-photo .about-us-social a:hover {
   color: $white;
+  font-size: 18px;
   line-height: 20px;
 }
 
-.about-us aside .about-us-photo .about-us-social a {
+.about-us .about-us-social a {
   margin: 0 4px;
 }
 
-/** Latest tweets **/
+// ***** Latest tweets *****
 
 .latest-tweets {
   margin-top: 40px;
 }
 
 .latest-tweets h4 {
-  padding: 0 0 10px 0;
   font-size: 30px;
   font-weight: 100;
   line-height: 34px;
+  padding: 0 0 10px;
 }
 
 .latest-tweets p {
@@ -697,50 +715,56 @@ h3.about-curious:hover {
   word-wrap: break-word;
 }
 
-.latest-tweets a, .latest-tweets a:focus { color: $white; }
-.latest-tweets a:hover { color: $orange; }
+.latest-tweets a,
+.latest-tweets a:focus {
+  color: $white;
+}
+
+.latest-tweets a:hover {
+  color: $orange;
+}
 
 .latest-tweets ul {
-  margin: 20px 0 0 0;
+  margin: 20px 0 0;
 }
 
 .latest-tweets li {
-  margin: 0 5px;
   display: inline-block;
   list-style: none;
+  margin: 0 5px;
 }
 
 .latest-tweets li .tweet_nav {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
   background-color: $translucent-white;
   cursor: pointer;
+  display: inline-block;
+  height: 10px;
+  width: 10px;
   @include radius( 5px );
-  @include transition( all, 0.3s );
+  @include transition( all,  .3s );
 }
 
 
-/***** Contact us *****/
+// ***** Contact us *****
 
 .contact-us {
-  margin-top: 60px;
   margin-bottom: 60px;
+  margin-top: 60px;
   text-align: center;
 }
 
 .contact-us h2 {
+  color: $medium-gray;
   font-size: 46px;
   line-height: 50px;
-  color: $medium-gray;
 }
 
 .contact-us p {
+  color: $light-gray;
+  font-size: 22px;
+  line-height: 36px;
   margin-top: 30px;
   padding: 0 120px;
-  font-size: 22px;
-  color: $light-gray;
-  line-height: 36px;
 }
 
 .contact.error-message {
@@ -749,46 +773,45 @@ h3.about-curious:hover {
 }
 
 
-/***** Footer *****/
+// **** Footer *****
 
 footer {
-  padding: 10px 0;
   background: $medium-dark-gray;
+  padding: 10px 0;
 }
 
 .footer-copyright p {
-  margin: 20px 0 0 0;
+  color: $white;
   font-size: 18px;
   line-height: 32px;
-  color: $white;
+  margin: 20px 0 0;
 }
 
 .footer-social {
   text-align: right;
 }
 
-
 footer img {
   width: 100px;
 }
 
 .ultm-facebook {
-  background-color: #133783;
+  background-color: $facebook-color;
 }
 
 .ultm-twitter {
-  background-color: #4099FF;
+  background-color: $twitter-color;
 }
 
-.ultm-twitter, .ultm-facebook {
-  @include transition( all, 0.5s );
+.ultm-twitter,
+.ultm-facebook {
+  @include transition( all, .5s );
 }
 
 .ultm-facebook:hover,
 .ultm-twitter:hover {
-  border: solid 4px white;
-  -webkit-transform: translate(-2px,-5px);
-  transform: translate(-2px,-5px);
+  border: solid 4px $white;
+  @include translate( -2px, -5px )
 }
 
 
@@ -799,7 +822,7 @@ footer img {
   }
 
   nav {
-    opacity: 0.9;
+    opacity: .9;
   }
 
   header img {
@@ -808,29 +831,35 @@ footer img {
 
   .countdown-block {
     margin: 5px;
-    padding:5px5px 5px 15px;
+    padding: 5px 5px 5px 15px;
   }
 
   .countdown p {
-    margin: 20px 0 10px;
-    padding: 0 10px;
     font-size: 18px;
     font-weight: 100;
     line-height: 28px;
+    margin: 20px 0 10px;
+    padding: 0 10px;
   }
 
-  .timer .days, .timer .hours, .timer .minutes, .timer .seconds {
+  .timer .days,
+  .timer .hours,
+  .timer .minutes,
+  .timer .seconds {
     font-size: 30px;
     font-weight: 100;
     line-height: 33px;
   }
 
-  .timer .days-wrapper, .timer .hours-wrapper, .timer .minutes-wrapper, .timer .seconds-wrapper {
-    width: 70px;
-    height: 70px;
-    margin: 5px 5px;
-    padding-top: 7px;
+  .timer .days-wrapper,
+  .timer .hours-wrapper,
+  .timer .minutes-wrapper,
+  .timer .seconds-wrapper {
     font-size: 12px;
+    height: 70px;
+    margin: 5px;
+    padding-top: 7px;
+    width: 70px;
   }
 
   .about-you > div > header > div {
@@ -844,15 +873,15 @@ footer img {
   }
 
   .about-you ul {
-    padding-left: 20px;
     font-size: 16px;
+    padding-left: 20px;
   }
 
   .about-you p {
-    margin-top: 15px;
-    padding: 0 4px;
     font-size: 16px;
     line-height: 24px;
+    margin-top: 15px;
+    padding: 0 4px;
   }
 
   .about-us > div > header > div,
@@ -867,6 +896,6 @@ footer img {
   }
 
   .footer-copyright p {
-    margin: 30px 0 0 0;
+    margin: 30px 0 0;
   }
 }
