@@ -1,0 +1,26 @@
+<h1><%= @organization.name %></h1>
+
+<dl>
+  <dt>Pitch</dt>
+  <dd><%= @organization.pitch %></dd>
+  <dt>Description (shared passion)</dt>
+  <dd>
+    <%= m(@organization.description) %>
+  </dd>
+  <dt>Logo</dt>
+  <dd><%= img_tag @organization.logo, alt: "logo" %></dd>
+  <dt>Home page</dt>
+  <dd><%= link_to @organization.name, url: @organization.home_page %></dd>
+  <dt>Slug</dt>
+  <dd><%= @organization.slug %></dd>
+  <dt>Founded</dt>
+  <dd><%= @organization.founded_on.strftime("%-d %b %Y") %></dd>
+  <dt>Active?</dt>
+  <dd><%= boolean_to_yesno( @organization.is_active ) %></dd>
+</dl>
+
+<p>
+  <%= link_to "All organizations", organizations_url %> |
+  <%= link_to "Edit #{@organization.name}", edit_organization_url( @organization ) %> |
+  <%= link_to "Delete #{@organization.name}", organization_url, method: :delete %>
+</p>

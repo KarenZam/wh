@@ -8,6 +8,13 @@
 .about-you ul li {
   line-height: $user-benefits-line-height;
   list-style: none;
+  margin-left: 10px;
+  text-indent: -30px;
+}
+
+.about-you ul i {
+  text-align: center;
+  width: 25px;
 }
 
 .about-you {

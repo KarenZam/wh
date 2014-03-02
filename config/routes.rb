@@ -1,4 +1,7 @@
 Wh::Application.routes.draw do
+
+  get 'overview' => 'dashboard#index', as: :dashboard
+
   resources :subscribers, only: [ :index, :destroy ]
   resources :registrants, only: [ :index, :destroy ]
   resources :organizations

@@ -1,0 +1,31 @@
+<h2 class="sub-header">Profiles</h2>
+
+<% if @profiles.empty? %>
+  <p>No profiles yet.</p>
+<% else %>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Profile</th>
+          <th>Name</th>
+          <th>Active?</th>
+          <th class="controls">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @profiles.each do |profile| %>
+          <tr>
+            <th><%= link_to profile.profile_name, profile_url(profile), title: "To the profile" %></th>
+            <td>><%= link_to profile.name, user_url( profile.user ), title: "To the user" %></td>
+            <td><%= boolean_to_yesno( profile.is_active ) %></td>
+            <td class="controls">
+              <%= link_to "Edit", edit_profile_url(profile), class: "btn btn-success btn-xs" %>
+              <%= link_to "Delete", profile_url(profile), method: :destroy, class: "btn btn-danger btn-xs" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

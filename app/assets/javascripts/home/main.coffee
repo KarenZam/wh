@@ -45,15 +45,6 @@ $ ->
     e.preventDefault()
 
     goToRegister()
-    # elementId = "#register"
-    # scrollTop = $(window).scrollTop()
-    # scrollTo = $(elementId).offset().top
-    # navHeight = $('header[role=banner] nav').height()
-
-    # if scrollTop != scrollTo && elementId != undefined
-    #   $('html, body').animate scrollTop: scrollTo,
-    #     Math.abs(scrollTop - scrollTo)
-
 
   $('header[role=banner] nav a').on 'click', (e) ->
     e.preventDefault()
@@ -172,15 +163,15 @@ $ ->
   # CONTACT FORM AJAX
 
   sendMessage = () ->
-    email = $('#contact_email').val()
-    subject = $('#contact_subject').val()
-    body = $('#contact_body').val()
+    email = $('#contact-email').val()
+    subject = $('#contact-subject').val()
+    message = $('#contact-message').val()
 
     data =
       "contact":
         "email": email
         "subject": subject
-        "message": body
+        "message": message
       "authenticity_token": $('input[name=authenticity_token]').val()
 
     $('#contact-form').hide()

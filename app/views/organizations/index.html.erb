@@ -1,0 +1,37 @@
+<h2 class="sub-header">Startups</h2>
+
+<% if @organizations.empty? %>
+  <p>No startups yet.</p>
+<% else %>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Pitch</th>
+          <th>Founded</th>
+          <th>Home page</th>
+          <th>Slug</th>
+          <th>Active?</th>
+          <th class="controls">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @organizations.each do |org| %>
+          <tr>
+            <th><%= link_to org.name, organization_url(org), title: "To the startup" %></th>
+            <td><%= org.pitch %></td>
+            <td><%= org.founded_on.strftime("%-d %b %Y") %></td>
+            <td><% if org.home_page %><%= link_to org.home_page, url: org.home_page %><% end %></td>
+            <td><%= org.slug %></td>
+            <td><%= boolean_to_yesno( org.is_active ) %></td>
+            <td class="controls">
+              <%= link_to "Edit", edit_organization_url(org), class: "btn btn-success btn-xs" %>
+              <%= link_to "Delete", organization_url(org), method: :destroy, class: "btn btn-danger btn-xs" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

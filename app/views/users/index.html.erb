@@ -1,8 +1,10 @@
-<div class="row">
-  <div class="col-md-12">
-    <h1>Users</h1>
+<h2 class="sub-header">Users</h2>
 
-    <table class="table table-striped table-bordered">
+<% if @users.empty? %>
+  <p>No users yet.</p>
+<% else %>
+  <div class="table-responsive">
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>Username</th>
@@ -10,27 +12,32 @@
           <th>Profiles</th>
           <th>Active?</th>
           <th>Admin?</th>
+          <th class="controls">&nbsp;</th>
         </tr>
       </thead>
       <tbody>
         <% @users.each do |user| %>
           <tr>
-            <th><%= link_to user.username, user_url(user) %></th>
-            <td><%= user.email %></td>
+            <th><%= link_to user.username, user_url(user), title: "To the user" %></th>
+            <td><a href="mailto:<%= user.email %>" title="Send mail"><%= user.email %></a></td>
             <td>
               <% if user.profiles.empty? %>
                 None yet
               <% else %>
                 <% user.profiles.each do |profile| %>
-                  <div><%= link_to profile.name, profile_url(profile) %></div>
+                  <div><%= link_to profile.name, profile_url(profile), title: "To the profile" %></div>
                 <% end %>
               <% end %>
             </td>
             <td><%= boolean_to_yesno( user.is_active ) %></td>
             <td><%= boolean_to_yesno( user.is_admin ) %></td>
+            <td class="controls">
+              <%= link_to "Edit", edit_user_url(user), class: "btn btn-success btn-xs" %>
+              <%= link_to "Delete", user_url(user), method: :destroy, class: "btn btn-danger btn-xs" %>
+            </td>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
-</div>
+<% end %>

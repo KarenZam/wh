@@ -1,11 +1,8 @@
-<p>
-  A contact was made by <%= @contact.email %> at <%= @contact.created_at.strftime("%-I:%M on %a, %-d %b %Y") %>.
-  The subject is "<%= @contact.subject %>" and the body of the email is:
-</p>
-
 <%= @markdown %>
 
+<hr>
+
 <p>
-  Cheers!<br>
-  Your humble W Hub server
+  This contact request was sent at <%= @contact.created_at.strftime("%-I:%M on %a, %-d %b %Y") %>
+  by <%= @contact. email %><% if @contact.user %> (<%= @contact.user.username %>)<% end %>.
 </p>

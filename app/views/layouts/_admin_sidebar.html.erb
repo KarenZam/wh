@@ -1,0 +1,39 @@
+<% if current_user %>
+  <ul class="nav nav-sidebar">
+    <%=
+      content_tag :li, class: (current_page?(dashboard_path) ? "active" : "") do
+        link_to "Overview", dashboard_url
+      end
+    %>
+    <%=
+      content_tag :li, class: (current_page?(users_path) ? "active" : "") do
+        link_to "Users", users_url
+      end
+    %>
+    <%=
+      content_tag :li, class: (current_page?(organizations_path) ? "active" : "") do
+        link_to "Startups", organizations_url
+      end
+    %>
+    <%=
+      content_tag :li, class: (current_page?(profiles_path) ? "active" : "") do
+        link_to "Profiles", profiles_url
+      end
+    %>
+    <%=
+      content_tag :li, class: (current_page?(contacts_path) ? "active" : "") do
+        link_to "Contacts", contacts_url
+      end
+    %>
+    <%=
+      content_tag :li, class: (current_page?(subscribers_path) ? "active" : "") do
+        link_to "Subscribers", subscribers_url
+      end
+    %>
+    <%=
+      content_tag :li, class: (current_page?(registrants_path) ? "active" : "") do
+        link_to "Registrants", registrants_url
+      end
+    %>
+  </ul>
+<% end %>

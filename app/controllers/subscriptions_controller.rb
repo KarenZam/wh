@@ -1,6 +1,7 @@
 class SubscriptionsController < ApplicationController
 
   def new
+    @page_title = "Sign up"
     if subscriber = Subscriber.find_by_code(params[:code])
       subscriber.code = nil
       subscriber.expires_at = nil

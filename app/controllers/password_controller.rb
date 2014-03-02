@@ -2,6 +2,7 @@ class PasswordController < ApplicationController
   before_action :get_user
 
   def edit
+    @page_title = "Reset Password"
   end
 
   def update

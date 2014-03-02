@@ -2,6 +2,7 @@ class SessionController < ApplicationController
   before_action :is_authenticated?, only: [ :destroy ]
 
   def new
+    @page_title = "Log in"
     redirect_to root_url if current_user
   end
 
@@ -21,7 +22,7 @@ class SessionController < ApplicationController
       if user = User.authenticate(email, password)
         session[:user_id] = user.id
 
-        redirect_to root_url
+        redirect_to dashboard_url
       else
         flash.now[:error] = "Unable to sign you in. Please try again."
 

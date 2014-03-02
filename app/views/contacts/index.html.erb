@@ -1,28 +1,34 @@
-<h1>Contacts</h1>
+<h2 class="sub-header">Contacts</h2>
 
-<table class="table table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>Subject</th>
-      <th>Username</th>
-      <th>Email</th>
-      <th>Received</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @contacts.each do |contact| %>
-      <tr>
-        <td><%= link_to contact.subject, contact_url(contact) %></td>
-        <td>
-          <% if contact.user %>
-            <%= link_to contact.user.username, user_url(contact.user) %>
-          <% else %>
-            Unregistered
-          <% end %>
-        </td>
-        <td><%= contact.email %></td>
-        <td><%= contact.created_at.strftime("%-I:%M on %a, %-d %b %Y") %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if @contacts.empty? %>
+  <p>No contacts yet.</p>
+<% else %>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Received</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @contacts.each do |contact| %>
+          <tr>
+            <td><%= link_to contact.subject, contact_url(contact), title: "To the contact" %></td>
+            <td >
+              <% if contact.user %>
+                <%= link_to contact.user.username, user_url(contact.user), title: "To the user" %>
+              <% else %>
+                Unregistered
+              <% end %>
+            </td>
+            <td><a href="mailto:<%= contact.email %>" title="Send mail"><%= contact.email %></a></td>
+            <td><%= contact.created_at.strftime("%-I:%M on %a, %-d %b %Y") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

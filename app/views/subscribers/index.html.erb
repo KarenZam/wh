@@ -1,0 +1,34 @@
+<h2 class="sub-header">Subscribers</h2>
+
+<% if @subscribers.empty? %>
+  <p>No subscribers yet.</p>
+<% else %>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Validated?</th>
+          <th class="controls">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @subscribers.each do |subscriber| %>
+          <tr>
+            <td><a href="mailto:<%= subscriber.email %>" title="Send mail"><%= subscriber.email %></a></td>
+            <td>
+              <% if subscriber.expires_at && subscriber.expires_at < @now %>
+                <strong class="expired">Expired</strong>
+              <% else %>
+                <%= boolean_to_yesno( subscriber.code.blank? ) %>
+              <% end %>
+            </td>
+            <td class="controls">
+              <%= link_to "Delete", subscriber_url(subscriber), method: :destroy, class: "btn btn-danger btn-xs" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

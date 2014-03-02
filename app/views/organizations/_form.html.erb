@@ -1,0 +1,32 @@
+<div class="col-md-4 col-sm-12">
+  <%= form_for @organization do |f| %>
+    <legend><% if @organization.persisted? %>Update <%= @organization.name %><% else %>Add a new startup<% end %></legend>
+    <div class="form-group">
+      <%= f.label :name, class: "sr-only" %>
+      <%= f.text_field :name, placeholder: "Name", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :pitch, class: "sr-only" %>
+      <%= f.text_field :pitch, placeholder: "Five-word pitch", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description, class: "sr-only" %>
+      <%= f.text_area :description, placeholder: "Describe your shared passion", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :logo, class: "sr-only" %>
+      <%= f.text_field :logo, placeholder: "Logo URL", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :home_page, class: "sr-only" %>
+      <%= f.text_field :home_page, placeholder: "Home page URL", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :founded_on, class: "sr-only" %>
+      <%= f.date_field :founded_on, placeholder: "Founded", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit class: "btn btn-danger" %>
+    </div>
+  <% end %>
+</div>

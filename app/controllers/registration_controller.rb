@@ -2,6 +2,7 @@ class RegistrationController < ApplicationController
   before_action :get_registrant
 
   def new
+    @page_title = "Register"
     @user = User.new
   end
 

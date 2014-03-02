@@ -3,14 +3,16 @@ class UsersController < ApplicationController
   before_action :get_user, except: [ :index, :new, :create ]
 
   def index
+    @page_title = "Users"
     @users = User.all
   end
 
   def show
-
+    @page_title = "User"
   end
 
   def new
+    @page_title = "Add a User"
     @user = User.new
   end
 
@@ -19,6 +21,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @page_title = "Edit a User"
     @user = User.find(params[:id])
   end
 
@@ -27,7 +30,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
 
     redirect_to users_url

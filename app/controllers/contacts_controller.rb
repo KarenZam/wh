@@ -3,21 +3,23 @@ class ContactsController < ApplicationController
   before_action :get_contact, only: [ :show, :destroy ]
 
   def index
+    @page_title = "Contacts"
     @contacts = Contact.all
   end
 
   def show
+    @page_title = "Contact"
     @markdown = m(@contact.message)
   end
 
   def create
-    contact = Contact.create(contact_params)
+    contact = Contact.new(contact_params)
+    contact.user = User.find_by(email: contact.email)
 
-    if contact.valid?
-      contact.user = User.find_by(email: contact.email)
-
+    if contact.save
       if Notifier.contact(contact, m(contact.message)).deliver
         Notifier.contact_reply(contact).deliver
+        render json: { message: "", valid: true }
       else
         render json: {
           contact: "Sorry, there was an error sending your contact. Please try again later.",
@@ -39,13 +41,15 @@ class ContactsController < ApplicationController
       flash[:alert] = "Failed to destroy Contact #{params[:id]}."
     end
 
-    redirect_to "index"
+    redirect_to contacts_url
   end
 
   private
 
   def get_contact
-    redirect_to( "index", alert: "Contact #{params[:id]} not found." ) unless @contact = Contact.find( params[:id] )
+    unless @contact = Contact.find( params[:id] )
+      redirect_to contacts_url, alert: "Contact #{params[:id]} not found."
+    end
   end
 
   def contact_params

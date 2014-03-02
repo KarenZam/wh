@@ -43,7 +43,7 @@ class Notifier < ActionMailer::Base
     @contact = contact
     @markdown = markdown
 
-    mail to: @@ADMIN_EMAIL, subject: @contact.subject
+    mail to: @@ADMIN_EMAIL, from: @contact.email, subject: "[W Hub] #{@contact.subject}"
   end
 
   def contact_reply(contact)
