@@ -4,6 +4,8 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :profile_type
       t.string :name_given
       t.string :name_family
+      t.string :company_name
+      t.string :position
       t.references :user
 
       t.timestamps
