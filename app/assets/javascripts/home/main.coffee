@@ -154,7 +154,7 @@ $ ->
         $('.subscription.error-message').fadeIn()
 
 
-  $('#subscription_form').on 'submit', (e) ->
+  $('#subscription-form').on 'submit', (e) ->
     e.preventDefault()
     sendSubcription()
 
