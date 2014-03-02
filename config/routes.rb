@@ -1,8 +1,11 @@
 Wh::Application.routes.draw do
+  resources :subscribers, only: [ :index, :destroy ]
+  resources :registrants, only: [ :index, :destroy ]
+  resources :organizations
   resources :users
-
-  # Contact form
-  resources :messages
+  resources :profiles
+  resources :affiliations
+  resources :contacts
 
   # Subscriptions (beta testing)
   get 'subscriptions/:code' => 'subscriptions#new', as: :subscription
