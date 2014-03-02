@@ -7,17 +7,17 @@
   text-align: center;
 }
 
-.about-us > div > header > div {
+.about-us header > div {
   margin-top: 60px;
   padding-bottom: 10px;
 }
 
-.about-us > div > header h2 {
+.about-us header h2 {
   font-size: 46px;
   line-height: 50px;
 }
 
-.about-us > div > header p {
+.about-us header p {
   font-size: 22px;
   line-height: 36px;
   margin-top: 30px;
@@ -28,7 +28,7 @@
   margin-top: 30px;
 }
 
-.about-us > div > header > div,
+.about-us header > div,
 .about-us aside {
   background-color: $orange;
   opacity: .8;
@@ -69,12 +69,12 @@
   width: 142px;
 }
 
-.about-us aside .about-us-photo img {
+.about-us .about-us-photo img {
   width: 100%;
   @include radius( 85px );
 }
 
-.about-us aside .about-us-photo .about-us-social {
+.about-us .about-us-photo .about-us-social {
   background: $orange;
   height: 84px;
   left: 0;
@@ -92,9 +92,9 @@
   top: 0;
 }
 
-.about-us .about-us-photo .about-us-social,
-.about-us .about-us-photo .about-us-social a,
-.about-us .about-us-photo .about-us-social a:hover {
+.about-us .about-us-social,
+.about-us .about-us-social a,
+.about-us .about-us-social a:hover {
   color: $white;
   font-size: 18px;
   line-height: 20px;
@@ -106,7 +106,7 @@
 
 @media (max-width: 979px) {
 
-  .about-us > div > header > div,
+  .about-us header > div,
   .about-us aside {
     margin: 15px 15px 5px;
     padding: 10px;
