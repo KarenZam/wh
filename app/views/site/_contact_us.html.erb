@@ -6,21 +6,21 @@
   </header>
   <section class="row">
     <div class="col-md-8 col-md-offset-2">
-      <form accept-charset="UTF-8" action="<%= messages_url %>" id="contact-form" method="post">
+      <form accept-charset="UTF-8" action="<%= contacts_url %>" id="contact-form" method="post">
         <fieldset>
           <legend>Want to know more ? We'd love to hear from you!</legend>
           <div class="contact error-message"></div>
           <div class="input-group">
-            <label for="message_email" class="sr-only">Email</label>
-            <input type="email" id="message_email" name="email" placeholder="Email..." class="form-control" required>
+            <label for="contact_email" class="sr-only">Email</label>
+            <input type="email" id="contact_email" name="email" placeholder="Email..." class="form-control" required>
           </div>
           <div class="input-group">
-            <label for="message_subject" class="sr-only">Subject</label>
-            <input type="text" id="message_subject" name="subject" placeholder="Subject..." class="form-control" required>
+            <label for="contact_subject" class="sr-only">Subject</label>
+            <input type="text" id="contact_subject" name="subject" placeholder="Subject..." class="form-control" required>
           </div>
           <div class="input-group">
-            <label for="message_body" class="sr-only">Message</label>
-            <textarea id="message_body" name="body" placeholder="Message..." class="form-control"></textarea>
+            <label for="contact_message" class="sr-only">Message</label>
+            <textarea id="contact_message" name="message" placeholder="Message..." class="form-control"></textarea>
           </div>
           <div class="input-group">
             <input type="submit" name="commit" value="Send" class="btn">

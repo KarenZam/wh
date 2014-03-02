@@ -50,3 +50,20 @@ User.create([
     is_active: false
   }
 ])
+
+Contact.create([
+  {
+    email: "bob@munat.com",
+    subject: "I love W Hub!",
+    message: %{
+      Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.
+      Cras ultricies ligula sed magna dictum porta. Nulla porttitor accumsan tincidunt.
+      Donec sollicitudin molestie malesuada. Cras ultricies ligula sed magna dictum porta.
+      Donec rutrum congue leo eget malesuada. Curabitur arcu erat, accumsan id imperdiet et,
+      porttitor at sem. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
+      Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vivamus magna justo,
+      lacinia eget consectetur sed, convallis at tellus.
+    }.squish,
+    user: User.find_by(email: "bob@munat.com")
+  }
+])

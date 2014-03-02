@@ -333,15 +333,15 @@ form .input-group {
 .countdown p.top-arrow i:hover:after { top: 10px; }
 
 
-/***** Register form *****/
+/***** Subscription form *****/
 
-.register {
+.subscribe {
   margin-top: 60px;
   text-align: center;
   padding-bottom: 10px;
 }
 
-.register h2 {
+.subscribe h2 {
   margin: 0;
   padding: 0;
   font-size: 47px;
@@ -349,35 +349,31 @@ form .input-group {
   color: $medium-gray;
 }
 
-.register p {
+.subscribe p {
   margin-top: 30px;
   font-size: 22px;
   color: $light-gray;
   line-height: 36px;
 }
 
-#registration-form input {
+#subscriber-form input {
   font-size: 20px;
   margin: 5px 0 5px 0;
 }
 
-#user_email {
+#subscriber_email {
   width: 100%;
 }
 
-#talent_submit {
+#subscriber_submit {
   background-color: $green;
 }
 
-#startup_submit {
-  background-color: $bleu;
-}
-
-#talent_submit, #startup {
+#subscriber_submit {
   @include transition( all, 0.6s );
 }
 
-#startup_submit:hover, #talent_submit:hover {
+#subscriber_submit:hover {
   -webkit-transform: scale(1.2,1.2);
   -webkit-transition-timing-function: ease-out;
   -moz-transform: scale(1.2,1.2);
@@ -803,11 +799,6 @@ footer img {
   transform: translate(-2px,-5px);
 }
 
-/***** Registration new *****/
-// .registration-new {
-//   background-size: cover;
-//   background-image: url('http://whub.com.hk/assets/backgrounds/free_blue_sky.jpg');
-// }
 
 @media (max-width: 979px) {
 

@@ -1,0 +1,18 @@
+<h1><%= @contact.subject %></h1>
+
+<p>
+  <% if @contact.user %>
+    <%= link_to "#{@contact.user.username} &lt;#{@contact.email}&gt;".html_safe, user_url(@contact.user) %>
+  <% else %>
+    <%= @contact.email %>
+  <% end %>
+</p>
+
+<div id="contact-message">
+  <%= @markdown %>
+</div>
+
+<p>
+  <%= link_to "All contacts", contacts_url %> |
+  <%= link_to "Delete this contact", contact_url, method: :destroy, confirm: "Are you sure?" %>
+</p>

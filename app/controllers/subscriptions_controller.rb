@@ -16,10 +16,10 @@ class SubscriptionsController < ApplicationController
   end
 
   def create
-    registrant = Registrant.create(subscription_params)
+    subscriber = Subscriber.create(subscription_params)
 
-    if registrant.valid?
-      unless Notifier.registration_request(registrant).deliver
+    if subscriber.valid?
+      unless Notifier.subscription_request(subscriber).deliver
         render json: {
           message: "There was a problem sending a validation email. Please try again later.",
           valid: false
@@ -27,7 +27,7 @@ class SubscriptionsController < ApplicationController
       end
     else
       render json: {
-        message: "Sorry, but we had some trouble registering '#{registrant.email}'. Is it a valid email address?",
+        message: "Sorry, but we had some trouble subscribing '#{subscriber.email}'. Is it a valid email address?",
         valid: false
       }
     end
@@ -36,6 +36,6 @@ class SubscriptionsController < ApplicationController
   private
 
   def subscription_params
-    params.require(:user).permit( :email, :user_category )
+    params.require(:user).permit( :email )
   end
 end

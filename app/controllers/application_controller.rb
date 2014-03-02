@@ -16,14 +16,6 @@ class ApplicationController < ActionController::Base
     current_user and @current_user.is_admin
   end
 
-  def is_startup?
-    current_user and @current_user.is_startup
-  end
-
-  def is_talent?
-    current_user and not @current_user.is_startup
-  end
-
   protected
 
   def m(md)

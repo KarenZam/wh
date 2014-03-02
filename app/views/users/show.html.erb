@@ -1,1 +1,42 @@
-<h1><%= @user.email %></h1>
+<h1><%= @user.username %></h1>
+
+<dl>
+  <dt>Email address</dt>
+  <dd><%= @user.email %></dd>
+  <dt>Profiles</dt>
+  <dd>
+    <% if @user.profiles.empty? %>
+      No profiles yet!
+    <% else %>
+      <ul>
+        <% @user.profiles.each do |profile| %>
+          <li><%= link_to profile.name, profile_url(profile) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </dd>
+  <dt>Joined</dt>
+  <dd><%= @user.created_at.strftime("%-I:%M on %a, %-d %b %Y") %></dd>
+  <dt>Active?</dt>
+  <dd><%= boolean_to_yesno( @user.is_active ) %></dd>
+  <dt>Admin?</dt>
+  <dd><%= boolean_to_yesno( @user.is_admin ) %></dd>
+  <dt>Contacts</dt>
+  <dd>
+    <% if @user.contacts.empty? %>
+      None yet.
+    <% else %>
+      <ol reversed>
+        <% @user.contacts.order("created_at desc").each do |contact| %>
+          <li><%= link_to contact.subject, contact_url(contact) %></li>
+        <% end %>
+      </ol>
+    <% end %>
+  </dd>
+</dl>
+
+<p>
+  <%= link_to "All users", users_url %> |
+  <%= link_to "Edit #{@user.username}", edit_user_url( @user ) %> |
+  <%= link_to "Delete #{@user.username}", user_url, method: :destroy, confirm: "Are you sure?" %>
+</p>

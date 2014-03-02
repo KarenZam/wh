@@ -133,24 +133,20 @@ $ ->
   $('.success-message').hide()
   $('.error-message').hide()
 
-  sendRegistration = (userCategory) ->
-    $('#talent_submit').attr('disabled',true)
-    $("#startup_submit").attr('disabled',true)
-
-    email = $('#user_email').val()
-    message = "Thank you, #{email}, #{userCategory}. We'll be in touch."
+  sendSubcription = ->
+    email = $('#subscriber_email').val()
+    message = "Thank you, #{email}. We'll be in touch."
 
     data =
-      "user":
+      "subscriber":
         "email": email
-        "user_category": userCategory
       "authenticity_token": $('input[name=authenticity_token]').val()
 
-    $('#registration-form').hide()
-    $('.registration.error-message').hide()
-    $('.registration.success-message').hide()
-    $('.registration.success-message').html message
-    $('.registration.success-message').fadeIn()
+    $('#subscription-form').hide()
+    $('.subscription.error-message').hide()
+    $('.subscription.success-message').hide()
+    $('.subscription.success-message').html message
+    $('.subscription.success-message').fadeIn()
 
     posting = $.ajax '/subscriptions',
       type: 'POST'
@@ -160,37 +156,31 @@ $ ->
 
     posting.done (data) ->
       unless data["valid"]
-        $('#user_email').focus()
-        $('.registration.success-message').hide()
-        $('.registration.error-message').hide()
-        $('.registration.error-message').html data["message"]
-        $('.registration.error-message').fadeIn()
-        $('#talent_submit').attr('disabled',false)
-        $('#startup_submit').attr('disabled',false)
+        $('#subscriber_email').focus()
+        $('.subscription.success-message').hide()
+        $('.subscription.error-message').hide()
+        $('.subscription.error-message').html data["message"]
+        $('.subscription.error-message').fadeIn()
 
 
-  $('#startup_submit').on 'click', (e) ->
+  $('#subscription_form').on 'submit', (e) ->
     e.preventDefault()
-    sendRegistration("startup")
-
-  $('#talent_submit').on 'click', (e) ->
-    e.preventDefault()
-    sendRegistration("talent")
+    sendSubcription()
 
 
 
   # CONTACT FORM AJAX
 
   sendMessage = () ->
-    email = $('#message_email').val()
-    subject = $('#message_subject').val()
-    body = $('#message_body').val()
-    console.log "sendMessage running!"
+    email = $('#contact_email').val()
+    subject = $('#contact_subject').val()
+    body = $('#contact_body').val()
+
     data =
-      "message":
+      "contact":
         "email": email
         "subject": subject
-        "body": body
+        "message": body
       "authenticity_token": $('input[name=authenticity_token]').val()
 
     $('#contact-form').hide()
@@ -199,7 +189,7 @@ $ ->
     $('.contact.success-message').html("Thank you, #{email}. We&apos;ll be in touch.")
     $('.contact.success-message').fadeIn()
 
-    posting = $.ajax '/messages',
+    posting = $.ajax '/contacts',
       type: 'POST'
       data: JSON.stringify(data)
       dataType: 'json'
@@ -207,7 +197,7 @@ $ ->
 
     posting.done (data) ->
       unless data["valid"]
-        $('#message_email').focus()
+        $('#contact_email').focus()
         $('.contact.success-message').hide()
         $('.contact.error-message').hide()
         $('.contact.error-message').html data["message"]

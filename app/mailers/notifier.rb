@@ -1,7 +1,7 @@
 class Notifier < ActionMailer::Base
   default from: "W Hub Administrator <whub.hk@gmail.com>"
 
-  @@ADMIN_EMAIL = "whub.hk@gmail.com"
+  @@ADMIN_EMAIL = "charles.munat@gmail.com" # "whub.hk@gmail.com"
 
   def subscription_request(subscriber)
     @subscriber = subscriber

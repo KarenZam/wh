@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
-  before_action :is_authenticated?
+  before_action :is_admin?
+  before_action :get_user, except: [ :index, :new, :create ]
 
   def index
     @users = User.all
   end
 
   def show
-    @user = User.find(params[:id])
+
   end
 
   def new
@@ -34,7 +35,11 @@ class UsersController < ApplicationController
 
   private
 
+  def get_user
+    redirect_to "index", alert: "Can't find User #{params[:id]}." unless @user = User.find(params[:id])
+  end
+
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit( :username, :email, :password, :password_confirmation )
   end
 end

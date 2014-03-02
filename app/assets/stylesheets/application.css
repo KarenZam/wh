@@ -16,6 +16,22 @@
  *= require ./vendor/ultm-bg-images-48
  *= require ./vendor/ultm-effects
  *= require ./vendor/media-queries
- *= require home
  */
 
+dt {
+  font-size: 18px;
+  font-height: 36px;
+  font-weight: 100;
+  color: gray;
+}
+
+dd {
+  font-size: 22px;
+  line-height: 44px;
+  margin-left: 40px;
+  color: blue;
+  background-color: white;
+}
+
+.yes { color: green; }
+.no  { color: red; }

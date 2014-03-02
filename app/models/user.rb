@@ -33,6 +33,10 @@ class User < ActiveRecord::Base
     nil
   end
 
+  def find_active_user(id)
+    User.where(id: id, is_active: true)
+  end
+
   def password_matches?(password)
     return self if self.fish == BCrypt::Engine.hash_secret(password, self.salt)
   end
