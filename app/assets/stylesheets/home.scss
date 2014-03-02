@@ -5,10 +5,8 @@ $light-gray:               rgba( 136, 136, 136, 1.0 );
 $medium-gray:              rgba(  85,  85,  85, 1.0 );
 $medium-dark-gray:         rgba(  61,  61,  61, 1.0 );
 $orange:                   rgba( 255, 110,   0, 1.0 );
-$bleu:                     rgba(  2,  118, 253, 1.0 );
-// $bleu:                     rgba(  17,  68, 200, 1.0 );
+$blue:                     rgba(  2,  118, 253, 1.0 );
 $green:                    rgba(  20, 209,   0, 1.0 );
-// $orange:                   rgba( 232, 100,  62, 1.0 );
 $black:                    rgba(   0,   0,   0, 1.0 );
 $translucent-black:        rgba(   0,   0,   0, 0.4 );
 $translucent-medium-blue:  rgba(   0,   0, 139, 0.4 );
@@ -57,7 +55,6 @@ $noty-message-line-height: 36px;
 
 body {
   font-family: 'Oxygen', sans-serif;
-  // font-family: 'Roboto', sans-serif;
   font-weight: 300;
   background-color: $white;
 }
@@ -443,25 +440,20 @@ form .input-group {
   line-height: 34px;
 }
 
-.about-you aside h3, #about-you .color-orange, #about-you .color-green, #about-you .color-bleu,
-  #about-you .about-icon {
-  cursor: pointer;
-}
-
 .about-you aside p {
   font-size: 18px;
   line-height: 32px;
 }
 
-.color-orange {
+.generic-style {
   color: $orange;
 }
 
-.color-bleu {
-  color: $bleu;
+.startup-style {
+  color: $blue;
 }
 
-.color-green {
+.talent-style {
   color: $green;
 }
 
@@ -478,12 +470,12 @@ form .input-group {
 }
 
 .about-icon.about-startup:hover {
-  border: 1px solid $bleu;
-  background-color: $bleu;
+  border: 1px solid $blue;
+  background-color: $blue;
 }
 
 h3.about-startup:hover {
-  color: $bleu;
+  color: $blue;
 }
 
 .about-icon.about-talent:hover {
@@ -795,7 +787,7 @@ footer img {
 .ultm-facebook:hover,
 .ultm-twitter:hover {
   border: solid 4px white;
-  -webkit-transform: translate(-2px,-5px); /* Chrome, Safari, Opera */
+  -webkit-transform: translate(-2px,-5px);
   transform: translate(-2px,-5px);
 }
 

@@ -5,7 +5,7 @@
         <h2>
           Don't miss out!
           <br><br>
-          <span class="color-orange">Sign up now</span> to get a place for our private beta version</h2>
+          <span class="generic-style">Sign up now</span> to get a place for our private beta version</h2>
           <br>
       </header>
       <form accept-charset="UTF-8" action="<%= login_url %>" id="registration-form" method="post" class="form-inline">
@@ -14,10 +14,10 @@
             <label for="user_email" class="sr-only">Email</label>
             <input type="email" id="user_email" name="email" placeholder="Enter your email address..." class="form-control" required>
           </div>
-          <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 color-green">
+          <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 talent-style">
             <input type="submit" id="talent_submit" name="talent" value="I am talent" class="btn">
           </div>
-          <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 color-blue">
+          <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12 startup-style">
             <input type="submit" id="startup_submit" name="startup" value="I am a startup" class="btn">
             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           </div>
