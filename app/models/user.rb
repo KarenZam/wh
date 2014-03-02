@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
   before_save :downcase_email
 
-  has_many :profiles
+  has_many :profiles, dependent: :destroy
   has_many :contacts
 
   attr_accessor :password, :password_confirmation

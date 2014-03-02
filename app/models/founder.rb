@@ -1,0 +1,2 @@
+class Founder < Profile
+end

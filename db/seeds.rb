@@ -1,35 +1,52 @@
-User.destroy_all
-Message.destroy_all
+Subscriber.destroy_all
 Registrant.destroy_all
+Contact.destroy_all
+User.destroy_all
+Organization.destroy_all
 
-Registrant.create([
+Subscriber.create([
   {
-    email: "bob@munat.com",
-    user_category: "startup"
+    email: "tom@munat.com"
   },
   {
-    email: "sam@munat.com",
-    user_category: "talent"
+    email: "tad@munat.com"
   },
   {
-    email: "tim@munat.com",
-    user_category: "talent"
+    email: "tim@munat.com"
   }
 ])
 
 User.create([
   {
+    username: "chasm",
     email: "chas@munat.com",
     password: "!QAZxsw2",
     password_confirmation: "!QAZxsw2",
     is_admin: true,
-    user_category: "talent"
+    is_active: true
   },
   {
+    username: "chleozam",
     email: "chleozam@gmail.com",
     password: "!QAZxsw2",
     password_confirmation: "!QAZxsw2",
     is_admin: true,
-    user_category: "startup"
+    is_active: true
+  },
+  {
+    username: "bobby",
+    email: "bob@munat.com",
+    password: "!QAZxsw2",
+    password_confirmation: "!QAZxsw2",
+    is_admin: false,
+    is_active: true
+  },
+  {
+    username: "sammy",
+    email: "sam@munat.com",
+    password: "!QAZxsw2",
+    password_confirmation: "!QAZxsw2",
+    is_admin: false,
+    is_active: false
   }
 ])
