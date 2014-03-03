@@ -58,10 +58,10 @@ $ ->
       $('html, body').animate scrollTop: scrollTo,
         Math.abs(scrollTop - scrollTo) / 3
 
-    console.log(elementId)
     if elementId == "#subscribe"
       $('#subscriber-email').focus()
-
+    if elementId == "#contact-us"
+      $('#contact-email').focus()
 
   # BACKGROUND SLIDESHOW
 

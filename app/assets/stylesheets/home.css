@@ -17,4 +17,5 @@
  *= require ./home/about-us
  *= require ./home/contact-us
  *= require ./home/footer
+ *= require ./subscriptions/new
  */

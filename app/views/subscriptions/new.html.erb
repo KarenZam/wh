@@ -16,7 +16,8 @@
     <title>W Hub</title>
 
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <%= stylesheet_link_tag "application", media: "all" %>
+
+    <link rel="stylesheet" href="/assets/subscriptions/new.css">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -27,11 +28,35 @@
   <body>
     <div style="text-align: center; margin-top: 200px">
       <div><img src="/assets/logo/whub_logo_04.png" alt="W Hub"></div>
-      <h1>Thank you for joining the W Hub community!</h1>
-      <p>
-        <a class="ultm ultm-facebook ultm-48 ultm-square" href="https://www.facebook.com/whubhk" target="_blank"></a>
-        <a class="ultm ultm-twitter ultm-48 ultm-square" href="https://twitter.com/WHubhk" target="_blank"></a>
-      </p>
+      <link rel="stylesheet" href="/assets/subsciptions/new.css">
+      <h1 class="subscription-title">
+        Thank you for joining the W Hub community!
+      </h1>
+      <h2 class="subscription-twitter"> Follow us on Twitter &nbsp
+        <span id="twitter-button">
+          <a href="https://twitter.com/whubhk" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false">Follow @whubhk</a>
+        </span>
+      </h2>
+      <h2 class="subscription-facebook"> 
+        Be a fan on Facebook &nbsp
+        <span class="fb-like" data-href="https://www.facebook.com/whubhk?fref=ts" data-width="200" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></span>
+      </h2>
     </div>
   </body>
 </html>
+
+
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+
