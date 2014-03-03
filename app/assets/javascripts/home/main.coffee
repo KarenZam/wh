@@ -15,7 +15,7 @@ $ ->
   # GO TO REGISTER
 
   goToRegister = () ->
-    elementId = "#register"
+    elementId = "#subscribe"
     scrollTop = $(window).scrollTop()
     scrollTo = $(elementId).offset().top
     navHeight = $('header[role=banner] nav').height()
@@ -23,7 +23,7 @@ $ ->
     if scrollTop != scrollTo && elementId != undefined
       $('html, body').animate scrollTop: scrollTo,
         Math.abs(scrollTop - scrollTo)
-    $('#user_email').focus()
+    $('#subscriber-email').focus()
 
   # PAGE NAVIGATION
 
@@ -57,6 +57,10 @@ $ ->
     if scrollTop != scrollTo && elementId != undefined
       $('html, body').animate scrollTop: scrollTo,
         Math.abs(scrollTop - scrollTo) / 3
+
+    console.log(elementId)
+    if elementId == "#subscribe"
+      $('#subscriber-email').focus()
 
 
   # BACKGROUND SLIDESHOW

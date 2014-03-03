@@ -12,6 +12,10 @@
   text-indent: -30px;
 }
 
+.about-you ul li span {
+  cursor: pointer;
+}
+
 .about-you ul i {
   text-align: center;
   width: 25px;
@@ -63,6 +67,7 @@
   font-weight: 700;
   line-height: 34px;
   padding: 10px 0;
+  cursor: pointer;
 }
 
 .about-you aside p {
@@ -78,6 +83,7 @@
   margin: 0 auto;
   padding-top: 25px;
   width: 140px;
+  cursor: pointer;
   @include radius( 85px );
   @include transition( all,  .3s );
 }
