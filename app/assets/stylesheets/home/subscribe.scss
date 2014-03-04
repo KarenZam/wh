@@ -27,11 +27,13 @@
 }
 
 #subscriber-email {
+  margin: 10px 0;
   width: 100%;
 }
 
 #subscriber-submit {
   background-color: $green;
+  margin: 10px 0;
   @include transition( all, .6s );
 }
 
