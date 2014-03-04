@@ -9,6 +9,12 @@ Wh::Application.routes.draw do
   resources :profiles
   resources :affiliations
   resources :contacts
+  resources :articles
+
+  # Blog
+
+  get 'blog' => 'blog#index', as: :blog
+  get 'blog/:slug' => 'blog#show', as: :blog_article
 
   # Subscriptions (beta testing)
   get 'subscriptions/:code' => 'subscriptions#new', as: :subscription

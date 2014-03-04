@@ -1,0 +1,16 @@
+<div class="col-md-4 col-sm-12">
+  <%= form_for @article do |f| %>
+    <legend><% if @article.persisted? %>Update <%= @article.title %><% else %>Add a new article<% end %></legend>
+    <div class="form-group">
+      <%= f.label :title, class: "sr-only" %>
+      <%= f.text_field :title, placeholder: "Title", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :body, class: "sr-only" %>
+      <%= f.text_area :body, placeholder: "Add content here (markdown enabled)", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit class: "btn btn-danger" %>
+    </div>
+  <% end %>
+</div>

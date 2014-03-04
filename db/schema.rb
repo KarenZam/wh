@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302043546) do
+ActiveRecord::Schema.define(version: 20140304115831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,41 @@ ActiveRecord::Schema.define(version: 20140302043546) do
 
   add_index "affiliations", ["organization_id"], name: "index_affiliations_on_organization_id", using: :btree
   add_index "affiliations", ["profile_id"], name: "index_affiliations_on_profile_id", using: :btree
+
+  create_table "articles", force: true do |t|
+    t.string   "title",                       null: false
+    t.text     "body",                        null: false
+    t.string   "slug",                        null: false
+    t.boolean  "is_archived", default: false
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.integer  "article_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["article_id"], name: "index_categories_on_article_id", using: :btree
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
+
+  create_table "comments", force: true do |t|
+    t.string   "message"
+    t.integer  "article_id"
+    t.integer  "comment_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["article_id"], name: "index_comments_on_article_id", using: :btree
+  add_index "comments", ["comment_id"], name: "index_comments_on_comment_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "contacts", force: true do |t|
     t.string   "email",           null: false
@@ -83,6 +118,16 @@ ActiveRecord::Schema.define(version: 20140302043546) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.integer  "article_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tags", ["article_id"], name: "index_tags_on_article_id", using: :btree
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",                   null: false

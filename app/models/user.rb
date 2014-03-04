@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :profiles, dependent: :destroy
   has_many :contacts
+  has_many :articles
 
   attr_accessor :password, :password_confirmation
 

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user
+  helper_method :current_user, :m
 
   before_filter :make_action_mailer_use_request_host_and_protocol
 
