@@ -1,6 +1,6 @@
 $ ->
 
-  DEBUT_DATE = "2014/4/4"
+  DEBUT_DATE = "2014/4/8"
 
   COUNTDOWN_BGNDS = [
     "assets/backgrounds/free_blue_sky.jpg"
