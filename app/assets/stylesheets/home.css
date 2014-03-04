@@ -17,5 +17,6 @@
  *= require ./home/about-us
  *= require ./home/contact-us
  *= require ./home/footer
+ *= require ./home/social-media.scss
  *= require ./subscriptions/new
  */

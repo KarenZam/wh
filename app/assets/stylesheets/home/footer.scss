@@ -12,31 +12,8 @@ footer {
   margin: 20px 0 0;
 }
 
-.footer-social {
-  text-align: right;
-}
-
 footer img {
   width: 100px;
-}
-
-.ultm-facebook {
-  background-color: $facebook-color;
-}
-
-.ultm-twitter {
-  background-color: $twitter-color;
-}
-
-.ultm-twitter,
-.ultm-facebook {
-  @include transition( all, .5s );
-}
-
-.ultm-facebook:hover,
-.ultm-twitter:hover {
-  border: solid 4px $white;
-  @include translate( -2px, -5px )
 }
 
 @media (max-width: 979px) {
