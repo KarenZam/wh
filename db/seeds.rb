@@ -21,11 +21,3 @@ chleozam = User.create(
   is_admin: true,
   is_active: true
 )
-
-# a1 = Article.create(
-#   title: "",
-#   body: %{
-#
-#   },
-#
-# )
