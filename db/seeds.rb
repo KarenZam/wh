@@ -23,13 +23,11 @@ chleozam = User.create(
 chasm = Admin.create(
   email: "chas@munat.com",
   password: "!QAZxsw2",
-  password_confirmation: "!QAZxsw2",
-  is_active: true
+  password_confirmation: "!QAZxsw2"
 )
 
 chleozam = Admin.create(
   email: "chleozam@gmail.com",
   password: "!QAZxsw2",
-  password_confirmation: "!QAZxsw2",
-  is_active: true
+  password_confirmation: "!QAZxsw2"
 )
