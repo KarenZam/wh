@@ -32,9 +32,10 @@ ActiveRecord::Schema.define(version: 20140304115831) do
   create_table "articles", force: true do |t|
     t.string   "title",                       null: false
     t.text     "body",                        null: false
+    t.string   "blog_image"
     t.string   "slug",                        null: false
     t.boolean  "is_archived", default: false
-    t.integer  "user_id"
+    t.integer  "user_id",                     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -52,10 +53,10 @@ ActiveRecord::Schema.define(version: 20140304115831) do
   add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
 
   create_table "comments", force: true do |t|
-    t.string   "message"
+    t.text     "body",       null: false
     t.integer  "article_id"
     t.integer  "comment_id"
-    t.integer  "user_id"
+    t.integer  "user_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

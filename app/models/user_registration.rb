@@ -28,7 +28,7 @@ class UserRegistration
 
   def registration_params(params, email)
     params.require(:user)
-      .merge({ id: SecureRandom.urlsafe_base64, email: email })
-      .permit( :id, :name, :email, :password, :password_confirmation )
+      .merge({ email: email })
+      .permit( :name, :email, :password, :password_confirmation )
   end
 end

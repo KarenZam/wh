@@ -13,10 +13,12 @@
   <dd><%= @article.created_at.strftime("%-I:%M on %a, %-d %b %Y") %></dd>
   <dt>Archived?</dt>
   <dd><%= boolean_to_yesno( @article.is_archived ) %></dd>
+  <dt>Image</dt>
+  <dd><img src="<%= @article.blog_image %>" alt="<%= @article.blog_image %>"></dd>
 </dl>
 
 <p>
   <%= link_to "All articles", articles_url %> |
-  <%= link_to "Edit #{@article.title}", edit_article_url( @article ) %> |
-  <%= link_to "Delete #{@article.title}", article_url, method: :delete %>
+  <%= link_to "Edit <em>#{@article.title}</em>".html_safe, edit_article_url( @article ) %> |
+  <%= link_to "Delete <em>#{@article.title}</em>".html_safe, article_url, method: :delete %>
 </p>

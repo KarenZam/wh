@@ -1,15 +1,17 @@
 Wh::Application.routes.draw do
 
-  get 'overview' => 'dashboard#index', as: :dashboard
+  scope :admin do
+    get 'overview' => 'dashboard#index', as: :dashboard
 
-  resources :subscribers, only: [ :index, :destroy ]
-  resources :registrants, only: [ :index, :destroy ]
-  resources :organizations
-  resources :users
-  resources :profiles
-  resources :affiliations
-  resources :contacts
-  resources :articles
+    resources :subscribers, only: [ :index, :destroy ]
+    resources :registrants, only: [ :index, :destroy ]
+    resources :organizations
+    resources :users
+    resources :profiles
+    resources :affiliations
+    resources :contacts
+    resources :articles
+  end
 
   # Blog
 

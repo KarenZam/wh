@@ -1,8 +1,17 @@
 class CommentsController < ApplicationController
+  before_action :is_authenticated?
 
   def create
-    if article = Article.find( params[:article_id] )
-      comment = Comment.new( comment_params )
+    comment = if params[:reply_to] && reply_to = Comment.find(params[:reply_to])
+      reply_to.comments.new( comment_params )
+    elsif article = Article.find( params[:article_id] )
+      article.comments.new( comment_params )
+    end
+
+    if comment
+      comment.user = current_user
+      comment.save
+    end
   end
 
   def update
@@ -15,7 +24,7 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(
-      :message,
+      :body,
       :reply_to
     )
   end

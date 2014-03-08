@@ -7,9 +7,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to_unless_current "W Hub Administration", { controller: :dashboard, action: :index }, { class: "navbar-brand" } do %>
-        <span class="navbar-brand">W Hub Administration</span>
-      <% end %>
+      <h1 class="navbar-brand">
+        <%= link_to_unless_current "W Hub Administration", { controller: :dashboard, action: :index } %>
+      </h1>
     </div>
     <div class="navbar-collapse collapse">
       <% if current_user %>

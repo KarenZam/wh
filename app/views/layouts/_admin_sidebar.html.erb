@@ -6,6 +6,11 @@
       end
     %>
     <%=
+      content_tag :li, class: (current_page?(articles_path) ? "active" : "") do
+        link_to "Articles", articles_url
+      end
+    %>
+    <%=
       content_tag :li, class: (current_page?(users_path) ? "active" : "") do
         link_to "Users", users_url
       end

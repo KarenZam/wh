@@ -5,5 +5,7 @@ class Comment < ActiveRecord::Base
   belongs_to :reply_to, class_name: Comment, foreign_key: :comment_id
   has_many :replies, class_name: Comment, foreign_key: :comment_id
 
-  validates :message, :article_id, :user_id, presence: true
+  validates :body, :user_id, presence: true
+
+  # Add validation for either/or article or comment
 end

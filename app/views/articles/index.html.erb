@@ -1,35 +1,10 @@
-<h2 class="sub-header">Articles</h2>
+<h2 class="sub-header">
+  Articles
+  <span class="pull-right">
+    <%= link_to "New Article", new_article_url, class: "btn btn-success btn-xs" %>
+  </span>
+</h2>
 
-<% if @articles.empty? %>
-  <p>No articles yet.</p>
-<% else %>
-  <div class="table-responsive">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Slug</th>
-          <th>Author</th>
-          <th>Published</th>
-          <th>Archived?</th>
-          <th class="controls">&nbsp;</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @articles.each do |article| %>
-          <tr>
-            <th><%= link_to article.title, article_url(article), title: "To the article" %></th>
-            <td><%= article.slug %></td>
-            <td><%= article.user.username %></td>
-            <td><%= article.created_at.strftime("%-I:%M on %a, %-d %b %Y") %></td>
-            <td><%= boolean_to_yesno( article.is_archived ) %></td>
-            <td class="controls">
-              <%= link_to "Edit", edit_article_url(article), class: "btn btn-success btn-xs" %>
-              <%= link_to "Delete", article_url(article), method: :destroy, class: "btn btn-danger btn-xs" %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-<% end %>
+<%= render partial: 'table', locals: { table_type: 'Current', articles: @current } %>
+
+<%= render partial: 'table', locals: { table_type: 'Archived', articles: @archived } %>

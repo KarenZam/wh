@@ -4,7 +4,11 @@ class ArticlesController < ApplicationController
 
   def index
     @page_title = "Articles"
-    @articles = Article.all
+    @current = []
+    @archived = []
+    Article.all.each do |article|
+      article.is_archived ? @archived.push(article) : @current.push(article)
+    end
   end
 
   def show
@@ -29,6 +33,11 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    article = Article.find(params[:id])
+    article.update(article_params)
+    article.save
+
+    redirect_to params[:return_to_index] ? articles_url : article_url(article)
   end
 
   def destroy
@@ -53,6 +62,8 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(
       :title,
       :body,
+      :blog_image,
+      :blog_image_cache,
       :is_archived
     )
   end

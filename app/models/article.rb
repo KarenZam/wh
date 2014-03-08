@@ -1,5 +1,6 @@
 class Article < ActiveRecord::Base
   before_create :set_slug
+  mount_uploader :blog_image, BlogImageUploader
 
   belongs_to :user
   has_many :comments

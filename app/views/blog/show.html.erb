@@ -30,9 +30,11 @@
 
         <h5 class="pad25"><strong><%= @article.comments.length %></strong> comments</h5>
 
-        <% @article.comments.each do |comment| %>
-          <%= render partial: 'comment', locals: { comment: comment } %>
-        <% end %>
+        <div class="media pad15">
+          <% @article.comments.each do |comment| %>
+            <%= render partial: 'comment', locals: { comment: comment } %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
