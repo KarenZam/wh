@@ -10,7 +10,6 @@ class Admin < ActiveRecord::Base
 
   attr_accessor :password, :password_confirmation
 
-  validates :adminname, uniqueness: { case_sensitive: false }
   validates :email, uniqueness: { case_sensitive: false }
   validates :email, format: { with: /\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\Z/i }
   validates :password, presence: true, on: :create
