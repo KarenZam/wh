@@ -1,0 +1,10 @@
+<h2 class="sub-header">
+  Articles
+  <span class="pull-right">
+    <%= link_to "New Article", new_article_url, class: "btn btn-success btn-xs" %>
+  </span>
+</h2>
+
+<%= render partial: 'table', locals: { table_type: 'Current', articles: @current } %>
+
+<%= render partial: 'table', locals: { table_type: 'Archived', articles: @archived } %>

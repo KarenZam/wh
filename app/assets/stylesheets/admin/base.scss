@@ -1,27 +1,45 @@
 // Base structure
 
-// Move down content because we have a fixed navbar that is 50px tall
+$border-color:              rgba( 238, 238, 238, 1.0 );
+$navbar-brand-color:        rgba( 153, 153, 153, 1.0 );
+$sidebar-bgnd-color:        rgba( 245, 245, 245, 1.0 );
+$sidebar-bgnd-active-color: rgba(  66, 139, 202, 1.0 );
+$sidebar-active-color:      rgba( 255, 255, 255, 1.0 );
+$key-link-color:            rgba( 255, 153,   0, 1.0 );
+$expired-color:             rgba( 255,   0,   0, 1.0 );
+
+$body-font-size: 16px;
+
 body {
+  font-size: $body-font-size;
   padding-top: 60px;
 }
 
+.navbar-inverse h1.navbar-brand {
+  margin: 0;
+}
+
+.navbar-inverse .navbar-brand a {
+  color: $navbar-brand-color;
+}
+
 .navbar-inverse .navbar-nav a.logout {
-  color: #ff9900;
+  color: $key-link-color;
 }
 
 .expired {
-  color: #ff0000;
+  color: $expired-color;
   text-transform: uppercase;
 }
 
 .navbar-inverse .navbar-nav a.logout:hover {
-  color: #ffffff;
+  color: $sidebar-active-color;
 }
 
 // Global add-ons
 
 .sub-header {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid $border-color;
   padding-bottom: 10px;
 }
 
@@ -34,8 +52,8 @@ body {
 
 @media (min-width: 768px) {
   .sidebar {
-    background-color: #f5f5f5;
-    border-right: 1px solid #eee;
+    background-color: $sidebar-bgnd-color;
+    border-right: 1px solid $border-color;
     bottom: 0;
     display: block;
     left: 0;
@@ -62,8 +80,8 @@ body {
 }
 
 .nav-sidebar > .active > a {
-  background-color: #428bca;
-  color: #fff;
+  background-color: $sidebar-bgnd-active-color;
+  color: $sidebar-active-color;
 }
 
 // Main content
@@ -81,6 +99,32 @@ body {
 
 .main .page-header {
   margin-top: 0;
+}
+
+.inline {
+  display: inline;
+}
+
+.three-controls {
+  width: 180px;
+}
+
+table.crud-list {
+  margin: 20px 0 40px;
+}
+
+caption {
+  font-size: 18px;
+  padding: 5px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+caption.current  { color: rgba(  92, 184,  92, 1 ); }
+caption.archived { color: rgba( 210,  50,  45, 1 ); }
+
+.article-title {
+  font-style: italic;
 }
 
 // Placeholder dashboard ideas

@@ -1,0 +1,24 @@
+<h1><%= @article.title %></h1>
+
+<dl>
+  <dt>Slug</dt>
+  <dd><%= @article.slug %></dd>
+  <dt>Author</dt>
+  <dd><%= @article.user.username %></dd>
+  <dt>Body</dt>
+  <dd>
+    <%= m(@article.body) %>
+  </dd>
+  <dt>Published</dt>
+  <dd><%= @article.created_at.strftime("%-I:%M on %a, %-d %b %Y") %></dd>
+  <dt>Archived?</dt>
+  <dd><%= boolean_to_yesno( @article.is_archived ) %></dd>
+  <dt>Image</dt>
+  <dd><img src="<%= @article.blog_image %>" alt="<%= @article.blog_image %>"></dd>
+</dl>
+
+<p>
+  <%= link_to "All articles", articles_url %> |
+  <%= link_to "Edit <em>#{@article.title}</em>".html_safe, edit_article_url( @article ) %> |
+  <%= link_to "Delete <em>#{@article.title}</em>".html_safe, article_url, method: :delete %>
+</p>

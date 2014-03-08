@@ -11,6 +11,8 @@ gem 'jbuilder'
 gem 'bcrypt'
 gem 'puma'
 gem 'rdiscount'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'better_errors'

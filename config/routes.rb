@@ -1,14 +1,22 @@
 Wh::Application.routes.draw do
 
-  get 'overview' => 'dashboard#index', as: :dashboard
+  scope :admin do
+    get 'overview' => 'dashboard#index', as: :dashboard
 
-  resources :subscribers, only: [ :index, :destroy ]
-  resources :registrants, only: [ :index, :destroy ]
-  resources :organizations
-  resources :users
-  resources :profiles
-  resources :affiliations
-  resources :contacts
+    resources :subscribers, only: [ :index, :destroy ]
+    resources :registrants, only: [ :index, :destroy ]
+    resources :organizations
+    resources :users
+    resources :profiles
+    resources :affiliations
+    resources :contacts
+    resources :articles
+  end
+
+  # Blog
+
+  get 'blog' => 'blog#index', as: :blog
+  get 'blog/:slug' => 'blog#show', as: :blog_article
 
   # Subscriptions (beta testing)
   get 'subscriptions/:code' => 'subscriptions#new', as: :subscription

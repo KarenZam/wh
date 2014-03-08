@@ -1,0 +1,42 @@
+  <div class="table-responsive">
+    <table class="table table-striped crud-list">
+      <caption class="<%= table_type.downcase %>"><%= table_type %> Articles</caption>
+      <% if articles.empty? %>
+        <tbody>
+          <tr>
+            <td>None yet.</td>
+          </tr>
+        </tbody>
+      <% else %>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Slug</th>
+            <th>Author</th>
+            <th>Published</th>
+            <th class="three-controls">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% articles.each do |article| %>
+            <tr>
+              <td class="article-title"><%= link_to article.title, article_url(article), title: "To the article" %></td>
+              <td><%= link_to article.slug, blog_article_url(article.slug), title: "To the post" %></td>
+              <td><%= link_to article.user.username, user_url(article.user), title: "To the user" %></td>
+              <td><%= article.created_at.to_formatted_s(:created_at) %></td>
+              <td class="controls">
+                <%= link_to "Edit", edit_article_url(article), class: "btn btn-success btn-xs" %>
+                <%= form_for article, html: { class: "inline" } do |f| %>
+                  <input type="hidden" name="return_to_index" value="true">
+                  <%= f.hidden_field :is_archived, value: (!article.is_archived) %>
+                  <% text = article.is_archived ? "Unarchive" : "Archive" %>
+                  <%= f.submit text, class: "btn btn-warning btn-xs" %>
+                <% end %>
+                <%= link_to "Delete", article_url(article), method: :destroy, class: "btn btn-danger btn-xs" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
