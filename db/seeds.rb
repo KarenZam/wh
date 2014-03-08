@@ -9,7 +9,6 @@ chasm = User.create(
   email: "chas@munat.com",
   password: "!QAZxsw2",
   password_confirmation: "!QAZxsw2",
-  is_admin: true,
   is_active: true
 )
 
@@ -18,6 +17,21 @@ chleozam = User.create(
   email: "chleozam@gmail.com",
   password: "!QAZxsw2",
   password_confirmation: "!QAZxsw2",
-  is_admin: true,
+  is_active: true
+)
+
+chasm = Admin.create(
+  username: "chasm",
+  email: "chas@munat.com",
+  password: "!QAZxsw2",
+  password_confirmation: "!QAZxsw2",
+  is_active: true
+)
+
+chleozam = Admin.create(
+  username: "chleozam",
+  email: "chleozam@gmail.com",
+  password: "!QAZxsw2",
+  password_confirmation: "!QAZxsw2",
   is_active: true
 )
